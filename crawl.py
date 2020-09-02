@@ -1,11 +1,16 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys 
 import time 
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup 
 
+
+options = webdriver.ChromeOptions()
+options.add_argument('headless')
+options.add_argument('window-size=1920x1080')
+options.add_argument("disable-gpu")
+options.add_argument("lang=ko_KR")
 chromedriver='C:/Users/python/Webdriver/chromedriver.exe' 
-driver = webdriver.Chrome(chromedriver)
-
+driver = webdriver.Chrome(chromedriver ,chrome_options=options)
 driver.get('https://korean.visitseoul.net/index')
 driver.set_window_size(1700,1200)
 assert "visitseoul" in driver.current_url 
@@ -56,7 +61,7 @@ def entertainment():
     classified_table= driver.find_elements_by_css_selector('#postSearchFrm > section > div.tag-element > a')
     for name in classified_table :
         try :
-            if name.text == '엔터테인먼트':
+            if name.text == '엔터테인먼트': 
                 name.click() 
         except :
             pass
