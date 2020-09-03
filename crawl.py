@@ -31,7 +31,10 @@ for name in elements :
 #필요할때 마다 뽑아서 페이지 넘기는 기능을 하게 함. 
  
 
-# 관광명소 
+tourist_dict = {} 
+entertainment_dict ={} 
+natural_dict = {} 
+# 관광명소  
 def tourist_attraction(): 
     classified_table= driver.find_elements_by_css_selector('#postSearchFrm > section > div.tag-element > a')
     for name in classified_table :
@@ -52,9 +55,10 @@ def tourist_attraction():
         res = driver.page_source
         soup = BeautifulSoup(res,'html.parser') 
         names = soup.select('div ul li a div div ') 
-        for name in names :
-            print(name.find('span',class_='title').string)  
-            print(name.find('span',class_='small-text text-dot-d').string, end='\n\n')
+        for name in names : 
+            title = name.find('span',class_='title').string   
+            discription = name.find('span',class_='small-text text-dot-d').string.strip('\t\n')
+            tourist_dict[title] = discription 
         cnt+=1  
         
 def entertainment():
@@ -76,11 +80,10 @@ def entertainment():
         soup = BeautifulSoup(res,'html.parser') 
         names = soup.select('div ul li a div div ') 
         for name in names :
-            print(name.find('span',class_='title').string)  
-            print(name.find('span',class_='small-text text-dot-d').string, end='\n\n')
+            title = name.find('span',class_='title').string
+            description = name.find('span',class_='small-text text-dot-d').string.strip('\t\n')
+            entertainment_dict[title] = description  
         cnt+=1  
-
-
 
 
 def natural_attraction():
@@ -102,25 +105,37 @@ def natural_attraction():
         soup = BeautifulSoup(res,'html.parser') 
         names = soup.select('div ul li a div div ') 
         for name in names :
-            print(name.find('span',class_='title').string)  
-            print(name.find('span',class_='small-text text-dot-d').string, end='\n\n')
+            title = name.find('span',class_='title').string
+            description = name.find('span',class_='small-text text-dot-d').string.strip('\t\n')
+            natural_dict[title] = description 
         cnt+=1 
-        
+    
+tourist_attraction()
+time.sleep(3) 
+entertainment()
+time.sleep(3)
+natural_attraction() 
+
+import pymysql 
+db = pymysql.connect(host='localhost' , port = 3306 , user ='root', 
+    passwd='bodu3717@@' ,db='date_maker', charset='utf8') 
+
+cursor= db.cursor()
 
 
-
+def insert_database(Dict,cla):
+    for title, des in Dict.items() :
+        sql =""" INSERT INTO dating_place (TITLE,descript,Classification) VALUES('%s','%s','%s'); """ % (str(title),str(des),str(cla))
+        cursor.execute(sql) 
 
 
 tourist_attraction()
-print('------------------첫 번째 크롤링이 끝났습니다-----------------------')
 time.sleep(3) 
 entertainment()
-print('------------------두 번째 크롤링이 끝났습니다-----------------------')
 time.sleep(3)
-natural_attraction()
-print('------------------세 번째 크롤링이 끝났습니다-----------------------')
+natural_attraction()  
+insert_database(tourist_dict,'명소')
+insert_database(entertainment_dict,'엔터테인먼트')
+insert_database(natural_dict,'자연&관광') 
 
 
- 
-
- 
