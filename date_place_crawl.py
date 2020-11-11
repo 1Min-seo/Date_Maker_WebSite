@@ -15,23 +15,18 @@ driver.get('https://korean.visitseoul.net/index')
 driver.set_window_size(1700,1200)
 assert "visitseoul" in driver.current_url 
 
-place_name = '강남'
+# place_name = DB에 넣을 지역 
 
 elements = driver.find_elements_by_css_selector('body > div > footer > div.footer-body > div > ul > li:nth-child(4) > ul > li >a')
 for name in elements :
     try :
         if name.text == place_name:
             name.click()
-
-    
     except : 
         pass 
   
  
-#필요할때 마다 뽑아서 페이지 넘기는 기능을 하게 함. 
- 
-
-tourist_dict = {} 
+#필요할때 마다 뽑아서 페이지 넘기는 기능 
 entertainment_dict ={} 
 natural_dict = {} 
 # 관광명소  
@@ -43,7 +38,7 @@ def tourist_attraction():
                 name.click() 
         except :
             pass 
-    #다음 페이지로 넘어가면 되므로, 
+    #다음 페이지로 넘기기
      
     page_nums = driver.find_elements_by_css_selector('#postSearchFrm > section > div.paging-lst > a')
     cnt = 0

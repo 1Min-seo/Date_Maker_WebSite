@@ -1,0 +1,70 @@
+body{
+    margin:0;
+}
+header {
+    height: 81px;
+    display: flex;
+    background-color: #323ED7;
+    box-shadow: rgba(206, 206, 206, 0.5) 0px 2px 4px 7px;
+    padding-right: 40px;
+    padding-left: 8px;
+    position: relative;
+
+}
+
+header form {
+    margin-right: auto;
+}
+
+header form input {
+    margin-right: auto;
+    background: url("../image/DateMakerLogo2.png") no-repeat;
+    border: none;
+    color: transparent;
+    height: 81px;
+    width: auto;
+    background-size: contain;
+}
+
+header input:focus {
+    outline: none;
+}
+
+header #yanolja a {
+    display: block;
+    width: 53px;
+    height: 53px;
+    border-radius: 7px;
+    color: transparent;
+    background: url("../image/yanolja_logo.PNG") no-repeat;
+    margin-top: 13px;
+    background-size: 100% 100%;
+    text-align: center;
+}
+
+header #instagram {
+    text-align: center;
+    margin-top: 14px;
+    margin-left: 12px;
+    background-color: white;
+    height: 51px;
+    width: 51px;
+    border-radius: 10px;
+    color: transparent;
+}
+
+header #instagram a {
+    position: absolute;
+    right: 34px;
+    bottom: 10px;
+    display: inline-block;
+    height: 64px;
+    width: 64px;
+    background: url("../image/instagram_logo.png");
+    background-size: 100% 100%; 
+}
+@media screen and (max-width: 768px) {
+    .sns {
+        display: none;
+    }
+}
