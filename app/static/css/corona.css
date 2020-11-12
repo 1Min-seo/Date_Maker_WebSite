@@ -1,0 +1,121 @@
+body{
+    margin : 0;
+}
+.container{
+    display :flex;
+    flex-direction: column;
+}
+.top-des{
+    height: 100px;
+    display: flex;
+    align-items: center;
+   }
+.top-des h1{
+    margin-left: 30px;
+    font-family: 'Do Hyeon', sans-serif;
+    font-size: 40px
+     
+}
+.top-des h1::before{
+    content:"\f080"; 
+    font-family: 'fontawesome';
+    margin-right: 20px;
+    color: "royalblue";
+
+}
+
+.top {
+    display: flex;
+    justify-content: center;
+
+}
+
+.top article {
+    height: 800px;
+     
+    margin: 3px;
+    text-align: center; 
+}
+
+#bar {
+    width : 1300px;
+}
+
+#pie {
+    width: 600px;
+    
+}
+
+
+ 
+
+.bottom-des{
+    height: 100px;
+    background-color:#ddd;
+    display: flex; 
+    align-items: center;
+}
+.bottom-des h1{
+    margin-left: 30px;
+    font-family: 'Do Hyeon', sans-serif;
+    font-size: 40px;
+}
+.bottom-des h1::before{
+    content:"\f071"; 
+    font-family: 'fontawesome';
+    margin-right: 20px;
+
+}
+.bottom{
+    display : flex;
+    height: 600px;
+}
+#rank{
+    width: 600px;
+    border: 1px solid black;
+}
+#rank ol{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 600px;
+    margin:0;
+    padding-top: 20px; 
+}
+#rank ol li{
+    width: 70%; 
+    font-size : 30px;
+    height:40px;
+    line-height: 40px;
+    margin: 10px 0;
+    padding-left: 30px;
+    font-family: 'Do Hyeon',sans-serif; 
+}
+
+
+
+@media (max-width: 767px) {
+    section {
+        flex-direction: column-reverse;
+    }
+    #bar,#pie,#go{
+        flex: none;  
+    }
+    #bar{
+        height: 400px; 
+        width: 100vw;
+    }
+    #pie{
+        height: 400px;
+        width: 100vw;
+    }
+    #go {
+        height: 100px;
+        width: 100vw;
+    }
+    #myChart{
+        width: 400px; 
+    }
+}

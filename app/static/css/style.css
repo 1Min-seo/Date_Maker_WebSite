@@ -1,5 +1,10 @@
 body{
     margin:0;
+    height: 100vh;
+}
+container{ 
+    display :flex;
+    flex-direction: column;
 }
 header {
     height: 81px;
@@ -63,6 +68,12 @@ header #instagram a {
     background: url("../image/instagram_logo.png");
     background-size: 100% 100%; 
 }
+
+footer{
+    background-color: #ddd;  
+    height: 82px;
+}
+
 @media screen and (max-width: 768px) {
     .sns {
         display: none;

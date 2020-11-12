@@ -7,75 +7,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="../../static/css/style.css"> 
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <link rel="stylesheet" href="../../static/css/style.css">
+    <!-- <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}"> -->
+    <link rel="stylesheet" href="../../static/css/corona.css">
+    <!-- <link rel="stylesheet" href="{{ url_for('static',filename='css/corona.css') }}"> -->
     <!-- css 링크 거는 방법  url_for('디렉토리명',filename="위치/이름")-->
     <!-- {% block link %}{% endblock %}  -->
-
+    
+    
+    <script src="https:cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
     <title>{% block title %}{% endblock %}</title>
     <style>
-     
+        @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;600;700&display=swap');
+        @import url('https:stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
     </style>
+    <script src="../../static/js/corona.js" defer></script>
 </head>
-
 <body>
-    <header>
-        <form action="/" method="get">
-            <input type="submit" value="메인 화면으로 돌아갑니다.">
-        </form>
-        <div class="sns" id="yanolja"><a>야놀자 로고</a></div>
-        <div class="sns" id="instagram"><a>인스타그램 로고</a></div>
-        <div class="trigger">
-            <span></span>
-            <span></span>
-            <span></span>
+    <container>
+        <header>
+            <form action="/" method="get">
+                <input type="submit" value="메인 화면으로 돌아갑니다.">
+            </form>
+            <div class="sns" id="yanolja"><a>야놀자 로고</a></div>
+            <div class="sns" id="instagram"><a>인스타그램 로고</a></div>
+        </header>
+        <main>
+            <div class="container"> 
+            <section class="top-des">
+                <h1>코로나 <span style="color:crimson">확진</span> 현황</h1> 
+            </section>
+            <section class="top">
+                <article id="bar">
+                    <canvas id="present" style="width:1220px; height:650px;"></canvas>
+                </article>
+                <article id="pie">
+                    <canvas id="added" style="width:544px; height:800px;"></canvas>
+                </article  >
+            </section>
+            <section class="bottom-des">
+                <h1>확진자수<span style="color:crimson"> 상위 </span>5곳</h1> 
+            </section>
+            <section class="bottom">
+                <article id="rank">
+                    <ol>
+                        <li class="warn">강동구</li>
+                        <li class="warn"></li>
+                        <li class="warn"></li>
+                        <li class="warn"></li>
+                        <li class="warn"></li>
+                     </ol>
+                </article>
+                <article id="go">
+                </article>
+                <article>
+                </article>
+            </section>
+
         </div>
-    </header>
-    <main>
-        <div id="test">테스트 태그</div> 
-        <!-- {% block main %}{% endblock %} -->
-    </main>
-    <script>
-        const testDiv = document.getElementById('test') 
-        console.log(testDiv) 
-        const init ={ 
-            option : {
-                method : "POST", 
-                url : "http://localhost:5000/corona/res",
-            },
-            create(pram){
-                return new Promise((resolve,reject) =>{
-                    const xhr = new XMLHttpRequest(); // 인스턴스 생성
-                    //온로드 이벤트 발생하면 처리하는 부분
-                    xhr.onload = function(){ 
-                        console.log(this)
-                        this.status == 200 ? resolve(JSON.parse(this.response)) : reject(this);
-                    }
-                    xhr.option = this.option; // Promise 환경에서 this 는 main 객체를 참조한다 
-                    xhr.open(xhr.option.method,xhr.option.url); 
-                    xhr.send();
-                });
-            },
-            //비동기 처리하는 메인부분
-            async getRes(){
-                try{ 
-                    const res = await this.create(this.option); //resolve this.response 가 담김 
-                    this.showData(res); //동기적 처리가 끝나면
-                }catch(error){
-                    this.serverError(error) 
-                };
-            },
-            showData(res){ //데이터를 화면에 뿌림 chart.js 로 구현
-                console.log(res); 
-                testDiv.innerHTML = res ;  
-                 
-            },
-            serverError(error){
-                console.log(error) ;
-            }
-        }
-        init.getRes();
-    </script>
+            <!-- {% block main %}{% endblock %} -->
+        </main>
+        <footer>
+            <div></div>
+        </footer>
+    </container> 
 </body>
 
 </html>
