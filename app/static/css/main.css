@@ -1,0 +1,452 @@
+/* 배너 영역 */
+.banner {
+    margin-top: 80px;
+    height: 350px;
+    padding: 30px 15%;
+    overflow: hidden;
+    text-align: center;
+   
+}
+.banner .floating-menu{
+    padding : 0;  
+    border-radius: 15px;
+    position : fixed; 
+    width: 110px;
+    height: 500px; 
+    right: 4em; 
+    box-shadow: #b7b7b7 0px 0px 10px 0px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    font-size: 1.1rem;
+}
+    
+.banner .floating-menu li{
+    width: 100px; 
+    height: 25% ; 
+    margin : 10px 0; 
+    position :relative; 
+}
+.banner .floating-menu li a{
+    position: absolute; 
+    width: 80px;
+    left: 13px;
+    top: 70px;; 
+}
+.banner .floating-menu li div{
+    width: 60px;
+    height: 60px; 
+    background-repeat: no-repeat;
+    background-size: contain;  
+     
+    border-radius: 50%;
+    margin:0 auto; 
+    transition : 0.1s;
+    background-color: transparent;
+}
+.banner .floating-menu li div:hover{
+     
+    filter : brightness(50%)
+    
+}
+.banner .floating-menu li .kakao{
+    background-image: url('../img/floating-kakao.PNG');
+    background-color: #F9E000;
+    background-position: 0 1px; 
+     
+}
+.banner .floating-menu li .mail{
+    background-image: url('../img/floating-gmail.PNG');
+    background-position: -2px 0.4px; 
+    background-size: 105%;
+}
+.banner .floating-menu li .call{
+    background-image: url('../img/floating-phone.PNG');
+    background-color: #43B51F;  
+
+}
+.banner .floating-menu .floating-menu-title{
+    height: 30px;
+    margin-bottom: 20px;
+    font-size: 1.2rem; 
+    font-weight: 500; 
+}
+
+.banner .inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #323ed7;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner .inner img {
+    margin-bottom: 60px;
+}
+
+.dc-layout {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    height: 345px;
+    color: #ffffff;
+    text-decoration: none solid #ffffff;
+    font-family: 'Noto Sans KR', sans-serif;
+    text-align: center;
+    margin-left: 5%; 
+}
+
+#text1 {
+    height: 75px;
+    padding-top: 46px;
+    box-sizing: border-box;
+
+}
+
+#text1 h6 {
+    display: inline;
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: 300;
+ 
+
+
+}
+#text1 h6:before{
+    content : "♥";
+    color: crimson; 
+    margin : 0 10px;
+}
+#text1 h6:after{
+    content : "♥";
+    color : crimson;
+    margin : 0 10px;
+}
+#text2 {
+
+    height: 105;
+    display: flex;
+    justify-content: center;
+}
+
+#text2 .box {
+    width: 800px;
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    margin-top: 0;
+    padding: 0;
+    display: flex;
+    margin-bottom: 40px;
+
+}
+
+#text2 .box h1 {
+    margin: 0;
+    line-height: 60px;
+
+}
+
+#text2 .box p {
+    margin: 0;
+    color: #ED234B;
+    font-size: 100px;
+    line-height: 16px;
+}
+
+.service-des{
+    margin :0 auto; 
+    width: 70%;
+    height: 127px;
+    position :relative;
+} 
+
+.service-des div{
+    height: 127px; 
+}
+
+.service-des div a.banner-img1-contain{
+    display : inline-block; 
+    width : 100%; 
+    height: 127px;
+    background-color: #28D5FF;
+    z-index: 1;
+} 
+
+.service-des div .banner-img1{
+    background-image : url("https://image.goodchoice.kr/images/cms/home_img/0074aba10a2fb06cfc9d0b6d6deb3ed2.jpg");
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    width: 516px;
+    height: 177px; 
+    width: 500px; 
+}
+
+
+.service-des div a.banner-img2-contain{
+    display : inline-block; 
+    width : 100%; 
+    height: 127px;
+    background-color: #2e76ff;
+    z-index: 1;
+} 
+
+.service-des div .banner-img2{
+    background-image : url("https://yaimg.yanolja.com/v5/2020/11/13/18/5fae4f5f82f134.31385377.jpg");
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    width: 516px;
+    height: 177px; 
+    width: 500px; 
+}
+.service-des div a.banner-img3-contain{
+    display : inline-block; 
+    width : 100%; 
+    height: 127px;
+    background-color:#B8C425 ;
+    z-index: 1;
+} 
+
+.service-des div .banner-img3{
+    background-image : url("https://yaimg.yanolja.com/v5/2020/10/30/14/5f9ba05dd1e8e1.87660392.png");
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    width: 516px;
+    height: 177px; 
+    width: 500px; 
+}
+.service-des div a.banner-img4-contain{
+    display : inline-block; 
+    width : 100%; 
+    height: 127px;
+    background-color: #E9D3AF;
+    z-index: 1;
+} 
+
+.service-des div .banner-img4{
+    background-image : url("https://image.goodchoice.kr/images/cms/home_img/e4254a77ef00e91039753061d5d4afbe.png");
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    width: 516px;
+    height: 177px; 
+    width: 500px; 
+}
+
+button.slick-arrow{
+     display: none !important; 
+}
+
+/*
+.slick-dots{ 
+    position : absolute; 
+    display :flex;
+    width : 193px;  
+    justify-content: center; 
+    left: 50%; 
+    transform: translateX(-50%);
+    padding: 0;
+    bottom : -45px; 
+}
+.slick-dots button{
+    margin : 0 2px;
+    border-radius: 50%;
+    border: none;
+    color: transparent;
+    width: 50%;
+    height: 50%;  
+    background-color: 
+}
+.slick-dots button:nth-child(1){
+    background-color: aqua;
+}
+*/
+
+
+
+
+
+
+.nav{
+    margin : 0 auto; 
+    width: 70%;
+    height: 60px;
+    
+ 
+    display : flex;
+    justify-content: space-around;
+}
+.nav article{
+    width : 35%;
+    height: 100%;
+    border: 1px solid black;
+    text-align:  center;
+    line-height :60px;
+    font-family: 'yg-jalnan';
+    font-size: 20px;
+    position : relative;  
+    margin : 0 5px; 
+    transition: 0.5s;
+}
+.nav article:before{
+    content :'';
+    position : absolute;
+    width: 100%;
+    top : 50%;
+    left: 0;
+    height: 1px; 
+    transform: translateY(-50%);  
+    background-color: white;
+    transition: 0.5s;
+    z-index: -1; 
+}
+.nav article:hover{
+      color: white;  
+}
+.nav article:hover:before{
+    height: 100%;
+    z-index: -1; 
+    background-color: crimson; 
+    opacity: 0.5;
+}
+/*test imonial 부분 */
+.testimonial {
+    display : flex;
+    justify-content: center; 
+    align-content: center;
+}
+.testimonial-content{
+    margin-top: 50px; 
+} 
+ 
+/* slide */ 
+
+.rec-food button{
+    display : none !important; 
+}
+.rec-food {
+    height: 1700px; 
+    width : 1100px;
+}
+ 
+.rec-food div .food-contain{
+    height: 250px;
+    float: left;
+    width : 530px;
+    position: relative;
+    margin : 10px 0;
+}
+
+.rec-food div .food-img{
+    display: block;
+    width : 220px;
+    height: 220px;
+    position : relative; 
+    overflow: hidden;
+   
+}
+.rec-food div .food-img img{
+    width : 220px;
+    height : 220px;
+    object-fit: contain; 
+}
+.rec-food div .food-img .tag{
+    position : absolute;
+    width: 220px;
+    height: 125px;
+    overflow: hidden;
+    background-color:#ffffff;
+    color :blue;
+    bottom: -130px;
+    left: 0;
+    text-align: center;
+    transition: 0.5s;
+    border-radius: 6px 6px 0 0;
+}
+     
+.rec-food div .food-img:hover img{
+   filter: blur(4px);
+}
+
+.rec-food div .food-img:hover .tag{
+    filter: blur(0);
+    opacity: 0.8;
+    display :block;
+    bottom : 0;
+}
+
+.rec-food div .food-content{
+    top:0; 
+    width : 270px;
+    height :220px;
+    padding : 3px 5px;
+    box-sizing: border-box;
+    position :absolute;
+    right: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    transition: 0.3s;
+    z-index: -1;
+    overflow: hidden;
+} 
+.rec-food div .food-content h1{
+    height: 30px;
+    margin: 0;
+}
+.rec-food div .food-content h1::before{
+    content : "";
+    display :inline-block;
+    position : absolute;
+    width: 40px;
+    height: 40px;
+    background-image: url("../img/instagram_logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.rec-food div .food-content h1 span{
+    margin-left: 55px;
+}
+
+@font-face {
+    font-family: 'IBMPlexSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.rec-food div .food-content p{
+     font-family: 'IBMPlexSansKR-Regular'; 
+} 
+.rec-food div .food-tag{
+    height: 200px;
+    position : absolute;
+    width : 280px;
+    background-color: #2b2b2b;
+    color: white;
+    top:0;
+    right:0;
+    text-align : center;
+    box-sizing: border-box;
+    padding : 9px;
+    
+}
+
+
+
+@media screen and (max-width:1495px){
+    .banner .floating-menu{
+        display : none;
+    }
+    .inner .img{
+        display :none; 
+    }
+    .dc-layout{
+        width: 100%;
+    }
+    .user-appear{ 
+        display : none; 
+    }
+}
+ 

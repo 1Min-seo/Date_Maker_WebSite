@@ -1,0 +1,122 @@
+.main{
+    flex: 1 ; 
+    display : flex;
+    justify-content: center;
+    margin-top : 120px
+}
+
+.main div.center{
+    border : 1px solid #EEEEEE; 
+    width: 524px;
+    height: 485px; 
+    position: absolute;
+    text-align: center;
+    display: flex; 
+    align-items: center;
+    flex-direction: column;
+    margin:0; 
+    box-sizing: border-box;
+    padding-top: 50px; 
+    border-radius: 20px;
+    overflow: hidden; 
+    
+}
+/*중앙정렬 시켜야하는 요소들 담는 곳*/
+.main article.form{
+    display : flex; 
+    flex-direction : column;
+    align-items: center;
+    height: 329px;
+    width: 524px;
+    font-size: 0; 
+    margin:0 auto; 
+    display : block; 
+}
+
+
+.main .center article h1{
+    height: 44px; 
+    line-height: 44px;
+    display:block;
+    box-sizing: border-box; 
+    font-size: 32px;
+    margin : 5px 0 0 1px;
+    color:#626466; 
+    margin-bottom: 30px;
+}
+
+.main .center article input{
+    
+    margin-bottom: 20px;
+    font-size: 20px;
+    padding : 10px; 
+    border: 1px solid #cccccc; 
+    width : 461px;
+    box-sizing: border-box; 
+    height: 55px; 
+    margin : 0; 
+    border-radius: 10px; 
+
+    color: black; 
+     
+}
+.main .center article input:focus{
+    outline: none;  
+}
+/*
+#alert{
+    height: 50px;
+    font-size: 20px;
+    color: lightcoral;
+    box-sizing: border-box;
+    margin-top: -3px; 
+}
+*/
+#input-2{
+    padding-top : 20px; 
+}
+#line{
+    padding: 0 0 28px 0 ;
+}
+ 
+#submit {
+   
+}
+
+#submit button{
+    display : inline-block;
+    padding: 10px; 
+    background-color:dodgerblue ; 
+    font-weight : 400; 
+    font-size : 28px;
+    color: white;
+    width: 461px;
+    height: 60px; 
+    border: none;
+    border-radius: 8px; 
+}
+.main .center article button:hover{
+    background-color : blue; 
+}
+
+ 
+
+.main article.bottom{
+    width : 100%;
+    height: 105px; 
+    background-color : #F5F5F5; 
+    margin-top : 34px;
+}
+.main article.bottom div{
+    font-size: 14px; 
+    margin-top: 22px; 
+    font-weight: bold;
+    color :black;
+}
+.main article.bottom div:nth-child(2){
+    font-size:12px; 
+    margin-top : 10px;
+    color :#666666;
+    padding: 0; 
+    font-weight: 400;
+}

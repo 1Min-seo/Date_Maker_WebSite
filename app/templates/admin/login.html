@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+{% block title %} 바루미 > 로그인 {% endblock %} 
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+{% block main %} 
+<p>{{ makeAlert | safe }} </p> 
+<section class="main">
+    <div class="center">
+        <article class="form">
+            <h1>로그인</h1>
+            <form method="POST" action="/login">
+                <div id="input-1">
+                    <label for="inputId" class="sr-only"></label>
+                    <input type="email" id="inputId" name="Id" placeholder="Enter your email" autofocus>
+                </div>
+                <div id ="input-2">
+                    <label for="inputPassword" class="sr-only"></label>
+                    <input type="password" id="inputPassword" name="passwd" placeholder="Enter your Password">
+                </div>
+                <div id="line">
+                    <div ></div>
+                </div>
+                <div id="submit"> 
+                <button type="submit">Login</button>
+                </div>
+            </form>
+        </article>
+        <article class="bottom">
+            <div><a>개인정보처리방침</a></div>
+            <div><a>COPYRIGHT &copy; 계란으로 바위치기</a></div>
+        </article>
+    </div>
+</section>
+{% endblock %} 

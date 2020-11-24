@@ -1,0 +1,45 @@
+{% extends "index.html" %}
+{% block title %} 바루미> 회원가입{% endblock %} 
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/sign-up.css') }}">
+{% endblock %}
+{% block main %}
+    <container>
+        <nav>
+            <div></div>
+        </nav>
+        <section class="main">
+            <article class="top">
+                <form method="POST" action="/signup">
+                    <h1>회원가입</h1>
+                    <div class="input">
+                    <span class="input-group-addon">
+                    <i class="fa fa-user "></i>
+                        </span>
+                        <input type="text" id="inputName" name="name" class="form-control" placeholder="Enter your name" required autofocus>
+                    </div>
+                    <div class="input">
+                     <span class="input-group-addon">
+                        <i class="fa fa-envelope"></i>
+                        </span>
+                        <input type="text" id="inputId" name="Id" class="form-control" placeholder="Enter your eamil"
+                        required autofocus>
+                    </div>
+                    <div class="input">
+                        <span class="input-group-addon">
+                        <i class="fa fa-lock"></i>
+                        </span>
+                        <input type="password" id="inputPassword" name="passwd" class="form-control" placeholder="Enter your password" required>
+                    </div>
+                    <div class ="button"> 
+                    <button  type="submit" id="submit">Create Account</button>
+                    <button type="button" id="cancel">Cancle</button> 
+                    </div>
+                </form>
+            </article>
+        </section>
+        <aside>
+            <div></div>
+        </aside>
+    </container>
+{% endblock %}  

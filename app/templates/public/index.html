@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>데이트 메이커</title>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <!-- <scrip src="../../static/js/main.js" defer></scrip> -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">  
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}">  
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="../../static/css/style.css">
+    <link rel="stylesheet" href="../../static/css/main.css">
+
+    
+</head>
+
+<body style="overflow-x:hidden">
+    <div class="app-container" id="app">
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <a href="#none">데이트 메이커.</a>
+                </div>
+                <div class="gnb">
+                    <a href="/datemaker">메인으로</a>
+                    <a href="/datemaker/corona">코로나 현황</a>
+                    <a href="#none">커플 정보</a>
+                    <div v-if="login">  
+                    <a href="#none" class="user-appear user-name">환영합니다<span style="color:crimson; font-size:22px;">!</span> ${ username } 님</a>
+                    </div>
+                    <div v-else>  
+                    <a href="#none" class="user-appear login" >로그인</a>
+                    <a href="#none" class="user-appear sign-up" >회원가입</a>
+                    </div>
+                   
+                </div>
+            </div>
+        </header>
+
+        <section class="banner">
+            <ul class="floating-menu">
+                <li class="floating-menu-title">서비스 문의</li>
+                <li>
+                    <div class="kakao"></div>
+                    <a>카톡 문의</a>
+                </li>
+                <li>
+                    <div class="mail"></div>
+                    <a>메일 문의</a>
+                </li>
+                <li>
+                    <div class="call"></div>
+                    <a>전화 문의</a>
+                </li>
+            </ul>
+            <div class="inner">
+                <article class="img">
+                    <img src="../../static/img/banner-logo.png">
+                </article>
+                <article class="dc-layout">
+                    <div id="text1">
+                        <h6>우리 커플, 아직도 데이트 메이커 안써 ?</h6>
+                    </div>
+                    <div id="text2">
+                        <div class="box">
+                            <h1>차별화된 데이트를 경험하세요!</h1>
+                            <p>.</p>
+                        </div>
+                    </div>
+                    <div class="service-des">
+                        <div>
+                            <a class="banner-img1-contain">
+                                <div class="banner-img1"></div>
+                            </a>
+                        </div>
+                        <div>
+                            <a class="banner-img2-contain">
+                                <div class="banner-img2"></div>
+                            </a>
+                        </div>
+                        <div>
+                            <a class="banner-img3-contain">
+                                <div class="banner-img3"></div>
+                            </a>
+                        </div>
+                        <div>
+                            <a class="banner-img4-contain">
+                                <div class="banner-img4"></div>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section class="nav">
+            <article class="nav-eat">
+                <i class="fas fa-utensils"></i>
+                <a>먹거리 찾아보기</a>
+            </article>
+            <article>
+                <i class="fas fa-suitcase-rolling"></i>
+                <a>놀 곳 알아보기</a>
+            </article>
+            <article>
+                <i class="fas fa-bed"></i>
+                <a>숙소 찾아보기</a>
+            </article>
+        </section>
+
+        <section class="testimonial">
+            <div class="testimonial-content">
+                <h2>당신에게 <span style="color:crimson;">HOT</span> 할 먹거리 추천</h2>
+                <hr>
+                <div class="rec-food" >
+                    <div v-for="(items,index) in foodArray" v-bind:key="index">
+                        <div class="food-contain" v-for="item in items">
+                            <div class="food-img">
+                                <img v-bind:src='item[1]'>
+                                <div class="tag">${ item[3] }</div>
+                            </div>
+                            <div class="food-content">
+                                <h1><span class="text"><em>Instagram</em> 후기</span></h1>
+                                <p> ${ item[2] }</p>
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+      
+        <footer>
+        </footer>
+    </div>
+    <script src="{{ url_for('static',filename='js/main.js') }}"></script>
+    <script>
+
+        $('.service-des').slick({
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: true,
+            //autoplay: true
+        })
+    </script>
+</body>
+
+</html>
