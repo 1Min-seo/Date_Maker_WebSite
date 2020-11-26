@@ -1,0 +1,219 @@
+header{
+    position : static;
+}
+.gnb{
+    display: none;
+}
+.container {
+    width: 61%;
+    float : left;
+    display : block;
+}
+.logo{
+    margin : 0; 
+}
+section{
+    z-index : auto !important; 
+}
+.hotel-container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    background-color: rgba(147, 147, 147, 0.17);
+    height : 100vh; 
+
+}
+.room-nav {
+    top:0;
+    margin: 0 auto;
+    width: 100vw;
+    height: 130px;
+    border: 3px solid black;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+    background-color: #323ed7;
+    color: white;
+
+}
+
+.room-nav-wrapper {
+    width: 60%;
+    height: 100%;
+    position: relative;
+}
+
+.room-nav-wrapper h1 {
+    font-size: 33px;
+    margin: 20px 0 10px 0;
+
+}
+.yanolja-img{
+    position : absolute;
+    right: 0;
+    top : 50%;
+    transform : translateY(-50%);
+    background-image: url("../img/yanolja_logo.PNG");
+    width : 75px;
+    height : 75px;
+    background-repeat: no-repeat;
+    background-size: contain; 
+    border-radius: 8px;
+}
+
+.drop-down {
+    transition: 0.5s;
+   
+}
+
+.room-nav-wrapper .drop-down-btn {
+    height: 40px;
+    font-size: 20px;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.18);
+    color: white;
+
+}
+.drop-down-btn::after {
+    content: "▼"; 
+    top: 7px;
+    color: white;
+    margin-left: 5px;
+}
+.drop-down-submenu {
+    padding-top: 10px;
+    top: 105px;
+    position: absolute;
+    width: 420px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    display: none;
+    background-color: white;
+    z-index: 1;
+    box-shadow: 3px 3px 5px rgba(118, 116, 116, 0.33);
+    color: rgb(0, 0, 0);
+
+}
+
+.drop-down-submenu li {
+    width: 210px;
+    height: 40px;
+}
+.drop-down-submenu li:hover {
+    font-weight: bold;
+    color: #323ed7;
+}
+
+.drop-down:hover .drop-down-submenu {
+    display: flex;
+}
+
+/* main */
+.main {
+    width: 60%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.hotel-container-box {
+    width: 600px;
+    height: 250px;
+    margin: 1rem 0.8rem;
+    display : flex;
+    background-color: white;
+    box-shadow: 3px 3px 5px rgba(118, 116, 116, 0.33);
+    cursor: pointer;
+}
+.hotel-container-box:hover {
+    background-color:  #22252cc5;
+    color : white;
+}
+
+.img-contain {
+    width: 250px;
+    height: 250px;
+    position : relative;
+    transition: 1s;
+}
+
+.img-contain img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+/* 박스 안 내용 부분 */ 
+.content {
+    width: 330px;
+    height: 250px;
+    right: 0;
+    position : relative; 
+}
+.content h1 {
+    margin-top: 3px;
+    text-align: center;
+}
+.content p {
+    margin: 1.7rem 1rem;
+    font-size: 20px;
+}
+.content .review-text{
+    margin-left: 48px;
+}
+.content .price-text{
+    margin-left: 70px;
+}
+.content .star-wrapper {
+    position: absolute;
+    left: 115px;
+    bottom: 95px;
+}
+.content .review-star {
+    width: 121px;
+}
+.content .review-star,
+.content .review-star span {
+    display: inline-block;
+    height: 22px;
+    overflow: hidden;
+    background: url('../img/star-off.png') no-repeat;
+}
+
+.content .review-star span {
+    line-height: 0;
+    background: url('../img/star-on.png') no-repeat;
+    filter: hue-rotate(80deg);
+}
+.add-cart{
+    width : 250px;
+    height: 250px;
+    position : absolute; 
+    top: 0;
+    background-color: black; 
+    color : white; 
+    box-sizing:  border-box ;
+    padding : 60px 14px;
+    font-size : 18px; 
+    text-align: center; 
+    opacity:0;
+    transition: 0.7s;
+}
+.add-cart button{
+    width : 200px; 
+    height: 32px;
+    background-color: coral;
+    font-weight: bolder; 
+    font-size : 15px; 
+}
+.add-cart button:hover{
+    transition : 0.5s;
+    background-color : crimson; 
+    color : white; 
+}
+.img-contain:hover .add-cart{
+    opacity : 0.6;
+}

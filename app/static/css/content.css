@@ -1,0 +1,119 @@
+header{
+    position : static;
+    box-shadow: none;
+}
+.gnb{
+    display: none;
+}
+.container {
+    width: 61%;
+    float : left;
+    display : block;
+}
+.logo{
+    margin : 0; 
+}
+section{
+    z-index : auto !important; 
+}
+.app-container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    background-color: rgba(147, 147, 147, 0.17);
+    height : 100vh; 
+}
+.app-nav {
+    top:0;
+    margin: 0 auto;
+    width: 100vw;
+    height: 130px;
+    border: 3px solid black;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+    background-color: #323ed7;
+    color: white;
+}
+.app-nav-wrapper {
+    width: 60%;
+    height: 100%;
+    position: relative;
+}
+.app-nav-wrapper h1 {
+    font-size: 33px;
+    margin: 20px 0 10px 0;
+}
+/* main */
+.main {
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+.app-container-box {
+    width: 600px;
+    height: 250px;
+    margin: 1rem 0.8rem;
+    display : flex;
+    background-color: white;
+    box-shadow: 3px 3px 5px rgba(118, 116, 116, 0.33);
+    cursor: pointer;
+}
+.app-container-box:hover {
+    background-color:  #22252cc5;
+    color : white;
+}
+.img-contain {
+    width: 250px;
+    height: 250px;
+    position : relative;
+    transition: 1s;
+}
+.img-contain img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+/* 박스 안 내용 부분 */ 
+.content {
+    width: 330px;
+    height: 250px;
+    right: 0;
+    position : relative; 
+}
+.content h1 {
+    margin-top: 3px;
+    text-align: center;
+}
+.add-cart{
+    width : 250px;
+    height: 250px;
+    position : absolute; 
+    top: 0;
+    background-color: black; 
+    color : white; 
+    box-sizing:  border-box ;
+    padding : 60px 14px;
+    font-size : 18px; 
+    text-align: center; 
+    opacity:0;
+    transition: 0.7s;
+}
+.add-cart button{
+    width : 200px; 
+    height: 32px;
+    background-color: coral;
+    font-weight: bolder; 
+    font-size : 15px; 
+}
+.add-cart button:hover{
+    transition : 0.5s;
+    background-color : crimson; 
+    color : white; 
+}
+.img-contain:hover .add-cart{
+    opacity : 0.6;
+}

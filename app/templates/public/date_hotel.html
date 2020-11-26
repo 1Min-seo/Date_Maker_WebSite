@@ -1,0 +1,50 @@
+{% extends "public/templates/public_template.html" %} 
+{% block title %}데이트메이커>숙소정보{% endblock %}
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static',filename='css/container.css') }}">
+{% endblock %}
+{% block main %}
+<div class="wrapper" id="app">
+    <div class="hotel-container" style="overflow-x: hidden">
+        <section class="room-nav">
+            <article class="room-nav-wrapper">
+                <h1>지역 선택</h1>
+                <div class="yanolja-img"></div>
+                <div class="drop-down">
+                    <button class="drop-down-btn">${ selected }</button>
+                    <ul class="drop-down-submenu">
+                        <submenu-item v-for="(item,index) in selectList" v-bind:item="item" v-on:change="changeItem"
+                            v-bind:key="index">
+                        </submenu-item>
+                    </ul>
+                </div>
+            </article>
+        </section>
+        <section class="main" id="app2">
+            <div v-for="(item,index) in items" v-bind:key="index" class="hotel-container-box" style="cursor:pointer; transition :0.5s;">
+                <div class="img-contain">
+                    <img v-bind:src="item[1]">
+                    <div class="add-cart">
+                        <p>해당 상품을 데이트 바구니에 담으시겠습니까?</p>
+                        <button type="button" v-on:click="addCart(item,index)">담기</button>
+                    </div>
+                </div>
+                <div class="content">
+                    <h1 style="margin-top:7px;">${ item[2] }</h1>
+                    <p>리뷰 수 <span class="review-text">${ item[4] }</span></p>
+                    <p>별점 ${ item[3] }</p>
+                    <div class="star-wrapper">
+                        <div class="review-star">
+                            <span v-bind:style="{ width:percent[index]+'%'}"></span>
+                        </div>
+                    </div>
+                    <p>가격 <span class="price-text">${ item[5] }</span></p>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock %}
+{% block script %}
+<script src="{{ url_for('static',filename='js/rooms.js') }}"></script>
+{% endblock %}

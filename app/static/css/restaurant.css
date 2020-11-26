@@ -1,0 +1,13 @@
+.content h1{
+    width: 320px;
+    margin-left: 10px;
+    border: 1px solid red;
+}
+
+.content p {
+    width : 320px;
+    height: 180px;
+    border: 1px solid red;
+    margin-left: 10px; 
+    font-family: 'yg-jalnan';
+}

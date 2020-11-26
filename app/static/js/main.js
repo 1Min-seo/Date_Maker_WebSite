@@ -1,4 +1,19 @@
+const header = document.getElementsByTagName('header')[0];
+document.addEventListener('scroll', () => {
+    if (document.documentElement.scrollTop == 0) {
+        header.style.boxShadow = '3px 3px 16px #ddd';
+    } else {
+        header.style.boxShadow = 'none';
+    }
+});
 
+$('.service-des').slick({
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    dots: true,
+    autoplay: true
+})
 
 var vm = new Vue({
     el : "#app",
@@ -51,11 +66,12 @@ var vm = new Vue({
     }
 }); 
 
-const header = document.getElementsByTagName('header')[0];
-document.addEventListener('scroll', () => {
-    if (document.documentElement.scrollTop == 0) {
-        header.style.boxShadow = '3px 3px 16px #ddd';
-    } else {
-        header.style.boxShadow = 'none';
+var vm = new Vue({
+    el : "#navigation",
+    methods : {
+        hotelPage : function(){
+            window.location.href= `${window.origin}/datemaker/hotel`;
+        }
     }
-});
+
+})

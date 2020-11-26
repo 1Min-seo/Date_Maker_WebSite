@@ -21,6 +21,7 @@ import re
 import pymysql 
 from maker_Views import main_view 
 from maker_Model.model import Restaurant 
+from maker_Model.model import RoomInfo 
 from maker_Controller.user_mgmt import User,Login
 import os 
 from flask import send_from_directory
@@ -87,7 +88,6 @@ class Crawl:
 
 
 # response API 
-
 @app.route('/datemaker/corona',methods=["POST","GET"])
 def coronaRes():
     response = Crawl.coronaData() 
@@ -99,13 +99,25 @@ def foodimgRes():
     response = Restaurant.getRestaurant()
     return make_response(jsonify(response),200)  
 
+@app.route('/datemaker/restaurant',methods=["POST"])
+def restaurantRes():
+    response = Restaurant.getRestaurant()
+    return make_response(jsonify(response),200) 
+
+@app.route('/datemaker/rooms/hotel',methods=["POST","GET"])
+def roomsRes():
+    req = request.get_json()
+    print(req)
+    location = req['title'] 
+    response = RoomInfo.getRooms(location)
+    return make_response(jsonify(response),200) 
+
 @app.route('/datemaker/main/usercheck',methods=["GET"])
 def userCheck():
     response = {
         'name' : "윤우상" 
     }
     return make_response(jsonify(response),200) 
-
 
 if __name__ == "__main__" :
     app.run(debug=1)  

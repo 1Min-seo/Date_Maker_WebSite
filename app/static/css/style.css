@@ -32,12 +32,12 @@ body {
     font-family: 'Noto Sans KR', sans-serif;
     width: 100vw; 
 }
-
+button{
+    border: none;
+}
 ul {
     list-style: none;
 }
-
-div {}
 
 a {
     text-decoration: none;
@@ -47,7 +47,6 @@ h1,h2,h3,h4,h5,h6{
 }
 
 /* start */
-
 .app-container {
     width : 100vw ;
     overflow: hidden ; 
@@ -57,11 +56,7 @@ header{
 }
 section{
     z-index: -1;
-   
 }
- 
-    
-
 /*헤더 영역 */
 header {
     background-color: white; 
@@ -76,9 +71,7 @@ header {
     left: 0;
     right: 0 ;
     width: 100vw !important; 
-
 }
-
 .container {
     font-size: 22px;
     font-weight: 500;
@@ -87,9 +80,7 @@ header {
     text-align: center;
     justify-content: center;
     overflow: hidden;
-
 }
-
 .logo {
     color: #323ed7;
     width: 230px;
@@ -97,19 +88,15 @@ header {
     line-height: 50px;
     margin-right: 25%;
 }
-
 .logo a {
     font-size: 30px;
     color: #323ed7;
     font-family: 'yg-jalnan';
-
 }
-
 .gnb {
     width: 470px;
     display: flex;
 }
-
 .gnb a {
     color: #494949;
     line-height: 50px;
@@ -119,12 +106,10 @@ header {
 .gnb a.user-appear{
     position :absolute; 
     font-size: 18px;
-     
 }
 .gnb a.user-name{
     right : calc(100px);
 }
-
 .gnb a.login{
     right : calc(4em + 100px);
 }
@@ -140,10 +125,6 @@ header {
     right: -17px;
     top: 17px;
 }
-
- 
-
-
 .gnb a:before {
     /*before,after 는 인라인 요소기 때문에 크기값을 가질 수 없다. position absolute 주면 인라인 블록으로 바뀜.*/
     content: '';
@@ -158,11 +139,9 @@ header {
     /*오른쪽에서 붙은 상태로 증가 */
     width: 0px;
 }
-
 .gnb a:hover::before {
     width: 100%;
 }
-
 @media screen and (max-width:1495px){
     .user-appear{ 
         display : none; 

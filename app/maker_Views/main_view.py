@@ -34,6 +34,11 @@ def gomain():
 def main():
     return render_template('public/index.html') 
 
+
+@pages.route('/datemaker/hotel',methods=["GET","POST"])
+def hotel():
+    return render_template('public/date_hotel.html')
+
 @pages.route('/datemaker/login',methods=["GET","POST"])
 def login(): 
     if request.method == "POST":

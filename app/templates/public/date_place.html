@@ -1,18 +1,62 @@
-    <form action='/area' method="POST" autocomplate='off'>
-        <center>
-        <p>데이트 지역을 선택해 주세요</p>
-        <input type='text' list='choice_place' name='input1'>
-        <datalist size='4' id='choice_place'>
-            <option value='강남'>강남</option>
-            <option value='잠실'>잠실</option>
-            <option value='홍대'>홍대</option>
-            <option value='여의도'>여의도</option>
-            <option value='동대문'>동대문</option>
-            <option value='명동'>명동</option>
-            <option value='광화문'>광화문</option>
-            <option value='이태원'>이태원</option>
-        </datalist>
-        <button type='submit'>선택</button>
-        </center>
-    </form> 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>구조</title>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/css/style.css">
+    <link rel="stylesheet" href="../../static/css/content.css">
+    <link rel="stylesheet" href="../../static/css/restaurant.css">
+</head>
+
+<body style="overflow-x:hidden">
+    <div class="app-container">
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <a href="/">데이트 메이커.</a>
+                </div>
+                <div class="gnb">
+                    <a href="#none">메인으로</a>
+                    <a href="#none">코로나 현황</a>
+                    <a href="#none">커플 정보</a>
+                    <a href="#none" class="user-appear login">로그인</a>
+                    <a href="#none" class="user-appear sign-up">회원가입</a>
+                    <a href="#none" class="user-disappear">{{ username }}</a>
+                </div>
+            </div>
+        </header>
+        <div class="wrapper" id="app">
+            <div class="app-container" style="overflow-x: hidden">
+                <section class="app-nav">
+                    <article class="app-nav-wrapper">
+                        <h1>지역 선택</h1>
+                    </article>
+                </section>
+                <section class="main" id="app2">
+                    <div v-for="(item,index) in items" v-bind:key="index" class="app-container-box"
+                        style="cursor:pointer; transition :0.5s;">
+                        <div class="img-contain">
+                            <img v-bind:src="item[1]">
+                            <div class="add-cart">
+                                <p>해당 상품을 데이트 바구니에 담으시겠습니까?</p>
+                                <button type="button" v-on:click="addCart(item,index)">담기</button>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <h1 style="margin-top:7px;">${ item[2] }</h1>
+                            <p>리뷰 수 <span class="review-text">${ item[4] }</span></p>
+                            <p>별점 ${ item[3] }</p>
+                            <p>가격 <span class="price-text">${ item[5] }</span></p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+</body>
+
+</html>                        
+                        
  
