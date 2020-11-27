@@ -22,9 +22,12 @@ import pymysql
 from maker_Views import main_view 
 from maker_Model.model import Restaurant 
 from maker_Model.model import RoomInfo 
+from maker_Model.model import PlaceInfo
 from maker_Controller.user_mgmt import User,Login
 import os 
 from flask import send_from_directory
+
+
 
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1' 
 
@@ -88,18 +91,30 @@ class Crawl:
 
 
 # response API 
-@app.route('/datemaker/corona',methods=["POST","GET"])
+@app.route('/datemaker/corona/total',methods=["POST","GET"])
 def coronaRes():
-    response = Crawl.coronaData() 
+    response = Crawl.coronaData()  
+    print(response)
+    return make_response(jsonify(response),200)
+
+@app.route('/datemaker/corona/today',methods=["POST","GET"])
+def coronaRes():
+    response = Crawl.coronaData()  
     print(response)
     return make_response(jsonify(response),200) 
+
+@app.route('/datemaker/corona/top5',methods=["POST","GET"])
+def coronaRes():
+    response = Crawl.coronaData()  
+    print(response)
+    return make_response(jsonify(response),200)
 
 @app.route('/datemaker/main/slide/food',methods=["POST"])
 def foodimgRes():
     response = Restaurant.getRestaurant()
     return make_response(jsonify(response),200)  
 
-@app.route('/datemaker/restaurant',methods=["POST"])
+@app.route('/datemaker/restaurant/res',methods=["POST"])
 def restaurantRes():
     response = Restaurant.getRestaurant()
     return make_response(jsonify(response),200) 
@@ -117,6 +132,14 @@ def userCheck():
     response = {
         'name' : "윤우상" 
     }
+    return make_response(jsonify(response),200) 
+
+@app.route('/datemaker/seoul/places',methods=["POST","GET"])
+def placeRes():
+    req = request.get_json()
+    print(req)
+    location = req['title'] 
+    response = PlaceInfo.getPlace(location)
     return make_response(jsonify(response),200) 
 
 if __name__ == "__main__" :
