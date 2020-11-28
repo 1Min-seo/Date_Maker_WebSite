@@ -66,7 +66,7 @@ class Crawl:
     def getText(cls,tag):
         return tag.get_text().strip('+')      
     @classmethod
-    def coronaData(cls):
+    def coronaData(cls):  # 지역 별 일일 총 인원/ 일일 증감 
         res = requests.get("https://www.seoul.go.kr/coronaV/coronaStatus.do")
         soup = BeautifulSoup(res.content,"lxml")
         getdata =soup.select("table.tstyle-status.pc.pc-table > tbody")[0] 
@@ -81,33 +81,39 @@ class Crawl:
     def seoulData(cls):
         res = requests.get("http://ncov.mohw.go.kr/")
         soup = BeautifulSoup(res.content,"lxml")
-        getdata = soup.select("#map_city1 > div > ul")[0]
+        seoulData = soup.select("#map_city1")[0]
+        # percent = seoulData.select('div.regional_incidence_ratio > div > div > p')[0].get_text()
+        percent = seoulData.find('div',class_="regional_incidence_ratio")['data-percentage']
+        getdata = seoulData.select('ul')[0]
         num =getdata.findAll('span',class_ = "num")
         sub_num =getdata.find('span',class_ = "sub_num")
         sub_num=sub_num.string.strip('()')
         numList = deque(list(map(cls.getText,num)))
         numList.appendleft(sub_num)
+        numList.appendleft(percent)
         return list(numList)
+    @classmethod
+    def allData(cls):
+        res = requests.get("http://ncov.mohw.go.kr/")
+        soup = BeautifulSoup(res.content,"lxml")
+        allData = soup.find('div',class_="liveNumOuter")
+        content = allData.find_all('span',class_='data')
+        domestic = content[0].string
+        overseas = content[1].string 
+        plus =re.findall('\d+',allData.find('span',class_="before").get_text())[0]
+        return [domestic,overseas,plus]
+        
 
 
 # response API 
 @app.route('/datemaker/corona/total',methods=["POST","GET"])
 def coronaRes():
-    response = Crawl.coronaData()  
-    print(response)
-    return make_response(jsonify(response),200)
-
-@app.route('/datemaker/corona/today',methods=["POST","GET"])
-def coronaRes():
-    response = Crawl.coronaData()  
-    print(response)
+    data = {}
+    data['coronaData'] = Crawl.coronaData()
+    data['seoulData'] = Crawl.seoulData()
+    data['allData'] = Crawl.allData()
+    response = data
     return make_response(jsonify(response),200) 
-
-@app.route('/datemaker/corona/top5',methods=["POST","GET"])
-def coronaRes():
-    response = Crawl.coronaData()  
-    print(response)
-    return make_response(jsonify(response),200)
 
 @app.route('/datemaker/main/slide/food',methods=["POST"])
 def foodimgRes():

@@ -32,12 +32,24 @@ def gomain():
 
 @pages.route('/datemaker')
 def main():
-    return render_template('public/index.html') 
+    return render_template('public/index.html')
 
 
 @pages.route('/datemaker/hotel',methods=["GET","POST"])
 def hotel():
     return render_template('public/date_hotel.html')
+
+@pages.route('/datemaker/restaurant')
+def restaurant():
+    return render_template('public/date_restaurant.html')
+
+@pages.route('/datemaker/dateplace')
+def dateplace():
+    return render_template('public/date_place.html') 
+
+@pages.route('/datemaker/corona')
+def coronaPage():
+    return render_template("public/corona.html") 
 
 @pages.route('/datemaker/login',methods=["GET","POST"])
 def login(): 
@@ -46,6 +58,7 @@ def login():
         user_passwd= request.form.get('passwd') 
         user = User.find(user_id) #있는 유저면 user인스턴스 생성
         if user.id == user_id and user.passwd == user_passwd:
+            session['user_id'] = user.id
             return redirect(url_for('view.main')) 
         if count.get_cnt() >= 4 :
             count.reset_cnt()
@@ -53,7 +66,7 @@ def login():
         count.add_cnt() 
         makeAlert ="""<script>alert("로그인 오류'%d'회")</script>""" % count.get_cnt()
         return render_template("admin/login.html",makeAlert=makeAlert,userName='')
-    return render_template('login.html',makeAlert=None,username=None) 
+    return render_template('admin/login.html',makeAlert=None,username=None) 
 
 @pages.route('/datemaker/signup',methods=["GET","POST"])
 def signup(): 
@@ -63,11 +76,7 @@ def signup():
         user_passwd = request.form.get('passwd')
         User.makeUser(user_id,user_name,user_passwd) 
         return  redirect(url_for('login')) 
-    return render_template("sign-up.html")
+    return render_template("admin/sign-up.html")
 
-@pages.route('/datemaker/corona')
-def coronaPage():
-    return render_template("public/corona.html") 
-     
  
 

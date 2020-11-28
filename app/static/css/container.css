@@ -21,8 +21,6 @@ section{
     flex-direction: column;
     align-items: center; 
     background-color: rgba(147, 147, 147, 0.17);
-    height : 100vh; 
-
 }
 .room-nav {
     top:0;
@@ -113,13 +111,10 @@ section{
 /* main */
 .main {
     width: 60%;
-
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-
 }
-
 .hotel-container-box {
     width: 600px;
     height: 250px;

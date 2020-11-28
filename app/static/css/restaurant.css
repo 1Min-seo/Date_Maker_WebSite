@@ -1,13 +1,62 @@
-.content h1{
-    width: 320px;
-    margin-left: 10px;
-    border: 1px solid red;
-}
-
 .content p {
     width : 320px;
     height: 180px;
-    border: 1px solid red;
-    margin-left: 10px; 
     font-family: 'yg-jalnan';
+    border-top : 3px solid black;
+    padding-top: 4px;
+    overflow: hidden !important;
+    box-sizing: border-box;
+    margin : 2px 0 0 10px;
+}
+.content .content-title{
+    font-family: 'Binggrae-Bold';
+    display : block;
+    width : 320px;
+    height: 60px;
+    font-size: 18px;
+    border-top : 3px solid black;
+    color : crimson ;
+    font-weight: bold;
+    margin : 5px 0 0 10px;
+}
+.content .content-title:hover{
+    color : dodgerblue;
+}
+.page-container-box:hover{
+    background-color: white; 
+    color: black;
+}
+.app-nav-wrapper{
+    position: relative;
+}
+#instagram-logo{
+    left: 0;
+    top : 54px;
+    position: absolute;
+    width: 53px;
+    height:53px;
+    background-image: url('../img/instagram_logo.png');
+    background-repeat: no-repeat;
+    background-size: 65px; 
+    background-position: -6px -6px;
+    background-color: white;
+    border-radius: 10px;
+}
+#instagram-logo span{
+    top: 2px;
+    left : 65px;
+    position : absolute;
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    text-shadow: 2px 2px 2px dodgerblue;
+}
+#hot{  
+    font-size: 30px;
+    color: rgb(236, 68, 101);
+}
+#hot:after{
+    text-shadow: 5px 5px 4px white;
+    color: transparent;
 }

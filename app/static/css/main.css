@@ -5,9 +5,8 @@
     padding: 30px 15%;
     overflow: hidden;
     text-align: center;
-   
 }
-.banner .floating-menu{
+.banner .floating-menu {
     padding : 0;  
     border-radius: 15px;
     position : fixed; 
@@ -21,7 +20,6 @@
     justify-content: center; 
     font-size: 1.1rem;
 }
-    
 .banner .floating-menu li{
     width: 100px; 
     height: 25% ; 
@@ -39,22 +37,18 @@
     height: 60px; 
     background-repeat: no-repeat;
     background-size: contain;  
-     
     border-radius: 50%;
     margin:0 auto; 
     transition : 0.1s;
     background-color: transparent;
 }
 .banner .floating-menu li div:hover{
-     
     filter : brightness(50%)
-    
 }
 .banner .floating-menu li .kakao{
     background-image: url('../img/floating-kakao.PNG');
     background-color: #F9E000;
     background-position: 0 1px; 
-     
 }
 .banner .floating-menu li .mail{
     background-image: url('../img/floating-gmail.PNG');
@@ -64,7 +58,6 @@
 .banner .floating-menu li .call{
     background-image: url('../img/floating-phone.PNG');
     background-color: #43B51F;  
-
 }
 .banner .floating-menu .floating-menu-title{
     height: 30px;
@@ -72,7 +65,6 @@
     font-size: 1.2rem; 
     font-weight: 500; 
 }
-
 .banner .inner {
     display: flex;
     justify-content: center;
@@ -83,11 +75,9 @@
     position: relative;
     overflow: hidden;
 }
-
 .banner .inner img {
     margin-bottom: 60px;
 }
-
 .dc-layout {
     width: 60%;
     display: flex;
@@ -99,22 +89,16 @@
     text-align: center;
     margin-left: 5%; 
 }
-
 #text1 {
     height: 75px;
     padding-top: 46px;
     box-sizing: border-box;
-
 }
-
 #text1 h6 {
     display: inline;
     line-height: 24px;
     font-size: 16px;
     font-weight: 300;
- 
-
-
 }
 #text1 h6:before{
     content : "♥";
@@ -127,12 +111,10 @@
     margin : 0 10px;
 }
 #text2 {
-
     height: 105;
     display: flex;
     justify-content: center;
 }
-
 #text2 .box {
     width: 800px;
     display: flex;
@@ -142,33 +124,26 @@
     padding: 0;
     display: flex;
     margin-bottom: 40px;
-
 }
-
 #text2 .box h1 {
     margin: 0;
     line-height: 60px;
-
 }
-
 #text2 .box p {
     margin: 0;
     color: #ED234B;
     font-size: 100px;
     line-height: 16px;
 }
-
 .service-des{
     margin :0 auto; 
     width: 70%;
     height: 127px;
     position :relative;
 } 
-
 .service-des div{
     height: 127px; 
 }
-
 .service-des div a.banner-img1-contain{
     display : inline-block; 
     width : 100%; 
@@ -176,7 +151,6 @@
     background-color: #28D5FF;
     z-index: 1;
 } 
-
 .service-des div .banner-img1{
     background-image : url("https://image.goodchoice.kr/images/cms/home_img/0074aba10a2fb06cfc9d0b6d6deb3ed2.jpg");
     background-size: contain; 
@@ -185,8 +159,6 @@
     height: 177px; 
     width: 500px; 
 }
-
-
 .service-des div a.banner-img2-contain{
     display : inline-block; 
     width : 100%; 
@@ -194,7 +166,6 @@
     background-color: #2e76ff;
     z-index: 1;
 } 
-
 .service-des div .banner-img2{
     background-image : url("https://yaimg.yanolja.com/v5/2020/11/13/18/5fae4f5f82f134.31385377.jpg");
     background-size: contain; 
@@ -210,7 +181,6 @@
     background-color:#B8C425 ;
     z-index: 1;
 } 
-
 .service-des div .banner-img3{
     background-image : url("https://yaimg.yanolja.com/v5/2020/10/30/14/5f9ba05dd1e8e1.87660392.png");
     background-size: contain; 
@@ -226,7 +196,6 @@
     background-color: #E9D3AF;
     z-index: 1;
 } 
-
 .service-des div .banner-img4{
     background-image : url("https://image.goodchoice.kr/images/cms/home_img/e4254a77ef00e91039753061d5d4afbe.png");
     background-size: contain; 
@@ -235,7 +204,6 @@
     height: 177px; 
     width: 500px; 
 }
-
 button.slick-arrow{
      display: none !important; 
 } 
@@ -289,9 +257,7 @@ button.slick-arrow{
 .testimonial-content{
     margin-top: 50px; 
 } 
- 
 /* slide */ 
-
 .rec-food button{
     display : none !important; 
 }
@@ -299,7 +265,6 @@ button.slick-arrow{
     height: 1700px; 
     width : 1100px;
 }
- 
 .rec-food div .food-contain{
     height: 250px;
     float: left;
@@ -334,18 +299,15 @@ button.slick-arrow{
     transition: 0.5s;
     border-radius: 6px 6px 0 0;
 }
-     
 .rec-food div .food-img:hover img{
    filter: blur(4px);
 }
-
 .rec-food div .food-img:hover .tag{
     filter: blur(0);
     opacity: 0.8;
     display :block;
     bottom : 0;
 }
-
 .rec-food div .food-content{
     top:0; 
     width : 270px;
@@ -376,14 +338,12 @@ button.slick-arrow{
 .rec-food div .food-content h1 span{
     margin-left: 55px;
 }
-
 @font-face {
     font-family: 'IBMPlexSansKR-Regular';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
-
 .rec-food div .food-content p{
      font-family: 'IBMPlexSansKR-Regular'; 
 } 
@@ -398,11 +358,7 @@ button.slick-arrow{
     text-align : center;
     box-sizing: border-box;
     padding : 9px;
-    
 }
-
-
-
 @media screen and (max-width:1495px){
     .banner .floating-menu{
         display : none;

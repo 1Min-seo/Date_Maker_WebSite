@@ -1,34 +1,34 @@
-{% extends "index.html" %}
-{% block title %} 바루미 > 로그인 {% endblock %} 
+{% extends "public/templates/public_template.html" %}
+{% block title %}데이트메이커>로그인{% endblock %}
 {% block link %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
 {% endblock %}
-{% block main %} 
+{% block main %}
 <p>{{ makeAlert | safe }} </p> 
 <section class="main">
     <div class="center">
         <article class="form">
             <h1>로그인</h1>
-            <form method="POST" action="/login">
+            <form method="POST" action="/login"> 
                 <div id="input-1">
                     <label for="inputId" class="sr-only"></label>
-                    <input type="email" id="inputId" name="Id" placeholder="Enter your email" autofocus>
+                    <input type="text" id="inputId" name="Id" placeholder="아이디를 입력해주세요" autofocus>
                 </div>
                 <div id ="input-2">
                     <label for="inputPassword" class="sr-only"></label>
-                    <input type="password" id="inputPassword" name="passwd" placeholder="Enter your Password">
+                    <input type="password" id="inputPassword" name="passwd" placeholder="비밀번호를 입력해 주세요">
                 </div>
                 <div id="line">
-                    <div ></div>
+                    <div></div>
                 </div>
                 <div id="submit"> 
-                <button type="submit">Login</button>
+                <button type="submit">로그인</button>
                 </div>
             </form>
         </article>
         <article class="bottom">
             <div><a>개인정보처리방침</a></div>
-            <div><a>COPYRIGHT &copy; 계란으로 바위치기</a></div>
+            <div><a>COPYRIGHT &copy; DateMaker</a></div>
         </article>
     </div>
 </section>

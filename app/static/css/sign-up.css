@@ -1,0 +1,111 @@
+body {
+    background-color: #eee;
+    font-size: 15px;
+    color: #222;
+    text-align: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+}
+.wrapper {
+    margin-top : 180px;
+    position : absolute;
+    left : 50% ;
+    transform: translateX(-50%);
+    display: flex;
+    width : 509px;
+    border : 1px solid #ddd; 
+    border-radius: 15px;
+}
+
+nav {
+    flex: 5
+}
+
+.main {
+    flex: 3;
+    height: 500px;
+    width: 510px;
+}
+
+.main .top h1{
+    font-size: 30px; 
+    margin: 30px 0 29px 0;
+    color :#a6a6a6; 
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight:  400;
+}
+
+.main .top .input {
+    box-sizing: border-box;
+    width: 100%;
+    display: block;
+    display: flex;
+    margin-bottom: 5px;
+    border: none;
+}
+.main .top .input::focus{
+    outline:none; 
+}
+.main .input .input-group-addon {
+    display: inline-block;
+    width: 50px;
+    height: 54px; 
+    background-color: dodgerblue;
+    color: white;
+    line-height: 50px; 
+    font-size : 30px;
+    border-radius: 8px 0 0 8px; 
+}
+
+.main .input input {
+    display : inline-block; 
+    flex: 1;
+    height:  54px;
+    border: 1px solid #767676;
+    font-size : 16px; 
+    margin-bottom: 20px;
+    box-sizing: border-box; 
+    font-size: 18px; 
+    
+}
+.main label {
+    text-align: left;
+    display: block;
+    margin-top: 20px;
+    padding : 3px;
+    font-size : 13px; 
+}
+
+.main .top label:before {}
+
+#submit{
+    display : inline-block;
+   
+    padding: 10px; 
+    background-color:dodgerblue;
+    font-weight : 400; 
+    font-size : 25px;
+    color: white;
+    width: 461px;
+    height: 50px; 
+    border: none; 
+    border-radius: 8px;
+    
+}
+#cancel{
+    display : block;
+    margin-top: 15px;
+    padding: 10px; 
+    background-color:  #767676;
+    font-weight : 400; 
+    font-size : 25px;
+    color: white;
+    width: 461px;
+    height: 50px; 
+    border: none; 
+    border-radius: 8px; 
+}
+aside {
+    flex: 5;
+}

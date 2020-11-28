@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -15,19 +14,22 @@
     <title>{% block title %}{% endblock %}</title>  
 </head>
 <body style="overflow-x:hidden">
-    <div class="app-container" >
-        <header>
-            <div class="container">
+    <div class="app-container">
+        <header id="app-header">
+            <div class="container"  id="app-total">
                 <div class="logo">
                     <a href="/">데이트 메이커.</a>
                 </div>
                 <div class="gnb">
-                    <a href="#none">메인으로</a>
-                    <a href="#none">코로나 현황</a>
+                    <a href="/datemaker/corona">코로나 현황</a>
                     <a href="#none">커플 정보</a>
-                    <a href="#none" class="user-appear login">로그인</a>
-                    <a href="#none" class="user-appear sign-up">회원가입</a>
-                    <a href="#none" class="user-disappear">{{ username }}</a>
+                    <a href="/">데이트 바구니</a>
+                    <a href="#none" class="user-appear user-name"v-if="login">안녕하세요<span style="color:crimson; font-size: 18px;">!</span> ${ username } 님</a>
+                    <template v-else> 
+                        <a href="/datemaker/login"  class="user-appear login">로그인</a>
+                        <a href="/datemaker/signup"  class="user-appear sign-up">회원가입</a>
+                    </template>
+                   
                 </div>
             </div>
         </header>
@@ -39,6 +41,7 @@
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script> 
+    <script src="{{ url_for('static', filename='js/usercheck.js') }}"> </script>
     {% block script %}{% endblock %}  
 </body>
 </html>

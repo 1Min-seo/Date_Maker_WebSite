@@ -1,81 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>구조</title>
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../static/css/style.css">
-    <link rel="stylesheet" href="../../static/css/content.css">
-    <link rel="stylesheet" href="../../static/css/restaurant.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script> 
-</head>
-
-<body style="overflow-x:hidden">
-    <div class="app-container">
-        <header>
-            <div class="container">
-                <div class="logo">
-                    <a href="/">데이트 메이커.</a>
-                </div>
-                <div class="gnb">
-                    <a href="#none">메인으로</a>
-                    <a href="#none">코로나 현황</a>
-                    <a href="#none">커플 정보</a>
-                    <a href="#none" class="user-appear login">로그인</a>
-                    <a href="#none" class="user-appear sign-up">회원가입</a>
-                    <a href="#none" class="user-disappear">{{ username }}</a>
-                </div>
-            </div>
-        </header>
-        <div class="wrapper" id="app">
-            <div class="app-container" style="overflow-x: hidden">
-                <section class="app-nav">
-                    <article class="app-nav-wrapper">
-                        <h1>지역 선택</h1>
-                    </article>
-                </section>
-                <section class="main">
-                    <div v-for="(item,index) in items" v-bind:key="index" class="app-container-box"
-                        style="cursor:pointer; transition :0.5s;">
-                        <div class="img-contain">
-                            <img v-bind:src="item[1]">
-                            <div class="add-cart">
-                                <p>해당 상품을 데이트 바구니에 담으시겠습니까?</p>
-                                <button type="button" v-on:click="addCart(item,index)">담기</button>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <h1 style="margin-top:7px;">${ item[2] }</h1>
-                            <p>리뷰 수 <span class="review-text">${ item[4] }</span></p>
-                        </div>
+{% extends "public/templates/public_template.html" %}
+{% block title %}데이트메이커>숙소정보{% endblock %}
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static',filename='css/content.css') }}">
+<link rel="stylesheet" href="{{ url_for('static',filename='css/restaurant.css') }}">
+{% endblock %}
+{% block main %}
+<div class="wrapper" id="app">
+    <div class="page-container">
+        <section class="app-nav">
+            <article class="app-nav-wrapper">
+                <h1>요즘 <span id="hot">HOT</span> 한 맛집</h1>
+                <p id="instagram-logo"><span><em>Instagram</em></span> </p>
+            </article>
+        </section>
+        <section class="main">
+            <div v-for="(item,index) in items" v-bind:key="index" class="page-container-box"
+                style="cursor:pointer; transition :0.5s;">
+                <div class="img-contain">
+                    <img v-bind:src="item[1]">
+                    <div class="add-cart">
+                        <p>해당 상품을 데이트 바구니에 담으시겠습니까?</p>
+                        <button type="button" v-on:click="addCart(item,index)">담기</button>
                     </div>
-                </section>
+                </div>
+                <div class="content">
+                    <title-text class="content-title" v-bind:hashtag="item[3]"></title-text>
+                    <p> ${ item[2] }</p>
+                </div>
             </div>
-        </div>
-       <script>
-           var vm =new Vue({
-               el :"#app",
-               data :{
-                   items : [['https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/126305751_1098422653907618_744784791396731771_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&_nc_cat=102&_nc_ohc=4Anc6Fan7RsAX-kWYyT&tp=1&oh=2c4f4a3ec93ae342713a1f6e3b410703&oe=5FE48CC1', '특제소스인 블랙알리오 소스부터스테이크, 통새우까지 쇽쇽 올라가서 더 맛있는 ㅍㅣ쟈..👏👏👏사이드메뉴랑 같이먹으면 무한흡입각임ㅇㅇ인생피자💖 @@오늘 피자헛 배달시켜먹자( •̀ ω •́ )✧.....', '#블랙알리오스테이크#피자헛#피자헛신메뉴#피자맛집#피자헛블랙알리오스테이크#블랙알리오스테이크피자#피자헛피자추천#피자추천#서울맛집']] 
-               },
-               created : function(){
-                   var vm =this; 
-                   axios.post(`${window.origin}/datemaker/restaurant`)
-                   .then((response)=>{
-                        var resData = response.data;
-                        vm.items=resData;
-                        console.log(vm.items)
-                   })
-               },
-               methods : {
-                   addCart : function(item){
-                        console.log(item) 
-                   }
-               }
-           })
-       </script>
-</body>
-
-</html>
+        </section>
+    </div>
+<div>
+{% endblock %}
+{% block script %}
+<script src="{{ url_for('static',filename='js/restaurant.js') }}"></script>
+{% endblock %}

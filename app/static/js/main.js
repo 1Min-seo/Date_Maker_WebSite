@@ -21,9 +21,7 @@ var vm = new Vue({
     data :{
       responseData: [],
       foodArray : [],
-      number : 0,
-      login : false,
-      username : null 
+      number : 0 
     }, 
     created : function(){
             this.isLogin() 
@@ -47,22 +45,6 @@ var vm = new Vue({
             .catch(function(error){    //실패 
                 console.log(error);
             })
-    },
-    methods : {
-        isLogin : function(){
-            var vm = this
-            axios.get(`${window.origin}/datemaker/main/usercheck`)
-            .then((response)=>{ 
-                console.log(response); 
-                var name = response.data['name']; 
-                vm.username = name; 
-                vm.login = true; 
-            })
-            .catch((error)=>{
-                console.log(error);
-            })
-            
-        }
     }
 }); 
 
@@ -71,6 +53,12 @@ var vm = new Vue({
     methods : {
         hotelPage : function(){
             window.location.href= `${window.origin}/datemaker/hotel`;
+        },
+        foodPage : function(){
+            window.location.href= `${window.origin}/datemaker/restaurant`;
+        },
+        PlacePage : function(){
+            window.location.href= `${window.origin}/datemaker/dateplace`;
         }
     }
 

@@ -1,21 +1,22 @@
-{% extends "public/templates/public_template.html" %} 
-{% block title %}데이트 메이커>코로나 현황{% endblock %}
-{% block link %}
-<link rel="stylesheet" href="{{ url_for('static',filename='css/corona.css') }}">
-{% endblock %}
-{% block main %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="stylesheet" href="../static/css/corona.css">  
+</head>
+<body>
 <div class="wrapper" id="app">
     <div class="floating-menu">
         <h3 class="floating-menu-title">국내 실시간 현황</h3>
         <ul>  
         <li>
-            <a>신규 확진<span>${ menu1 } 명</span></a>
+            <a>신규 확진<span>1112312</span></a>
+           
         </li>
         <li>    
-            <a>국내발생<span>${ menu2 } 명</span></a>
+            <a>국내발생<span>1112312111</span></a>
         </li>
         <li>
-            <a>해외유입<span>${ menu3 } 명</span></a>
+            <a>해외유입<span>1112312</span></a>
         </li>
         </ul>
     </div>
@@ -59,8 +60,5 @@
         </div>
     </section>
 </div>
-{% endblock %}
-{% block script %}
-<script src="https:cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
-<script src="{{ url_for('static',filename='js/corona.js') }}"></script>
-{% endblock %}
+</body>
+</html>

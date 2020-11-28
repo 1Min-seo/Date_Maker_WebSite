@@ -1,0 +1,203 @@
+header{
+    position : static;
+    box-shadow: none;
+}
+.gnb{
+    display: none;
+}
+.container {
+    width: 61%;
+    float : left;
+    display : block;
+}
+.logo{
+    margin : 0; 
+}
+section{
+    z-index : auto !important; 
+}
+.page-container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    background-color: rgba(147, 147, 147, 0.17);
+}
+.app-nav {
+    top:0;
+    margin: 0 auto;
+    width: 100vw;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+    background-color: #323ed7;
+    color: white;
+}
+.app-nav-wrapper {
+    width: 60%;
+    height: 100%;
+    position: relative;
+}
+.app-nav-wrapper h1 {
+    font-size: 33px;
+    margin: 20px 0 10px 0;
+}
+/* main */
+.main {
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+.page-container-box {
+    width: 350px;
+    height : 350px;
+    margin: 1rem 0.8rem;
+    display : flex;
+    background-color: white;
+    box-shadow: 3px 3px 5px rgba(118, 116, 116, 0.33);
+    cursor: pointer;
+    position : relative; 
+    border-radius: 30px;
+    overflow: hidden;
+}
+.page-container-box:hover .content{
+    top : 42%;
+     
+}
+.img-contain {
+    width :inherit;
+    height: inherit;
+    position : relative;
+    transition: 0.7s;
+      
+}
+.img-contain img {
+    width :inherit;
+    height: inherit;
+    object-fit: cover;
+}
+/* 박스 안 내용 부분 */ 
+.content {
+    width: 300px;
+    height: 200px;
+    right: 0;
+    position : absolute;
+    border-radius: 10%;
+    top : 69%;
+    left : 50%;
+    transform: translateX(-50%);
+    transition: 0.5s;
+    background-color:white;
+    opacity: 0.7;
+    padding : 8px;
+    box-sizing: border-box;
+}
+.content h1 {
+    margin-top: 3px;
+    text-align: center;
+    font-size: 18px;
+}
+.content p{
+    margin : 0 4px;
+}
+.add-cart{
+    position: absolute;
+    bottom :8px;
+    left :50% ;
+    transform: translateX(-50%); 
+    width: 200px;
+    height : 40px;
+    border-radius: 8px;
+    background-color: rgba(0, 119, 255, 0.432);
+    font-weight: bold;  
+    opacity: 1; 
+}
+.add-cart:hover{
+    background-color: rgba(255, 30, 0, 0.568);
+    color: white;
+    font-weight: bold; 
+    opacity: 1; 
+}
+.classify{
+    position: absolute;
+    width: 130px;
+}
+
+
+/* 네비게이션 부분 */ 
+.room-nav {
+    top:0;
+    margin: 0 auto;
+    width: 100vw;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+    background-color: #323ed7;
+    color: white;
+
+}
+.room-nav-wrapper {
+    width: 60%;
+    height: 100%;
+    position: relative;
+}
+
+.room-nav-wrapper h1 {
+    font-size: 33px;
+    margin: 20px 0 10px 0;
+
+}
+.drop-down {
+    transition: 0.5s;
+    width: 200px;
+}
+
+.room-nav-wrapper .drop-down-btn {
+    width: 200px;
+    height: 40px;
+    font-size: 20px;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.18);
+    color: white;
+
+}
+
+.drop-down-btn::after {
+    content: "▼";
+    position: absolute;
+    top: 7px;
+    color: white;
+    margin-left: 5px;
+}
+
+
+
+.drop-down-submenu {
+    padding-top: 10px;
+    top: 105px;
+    position: absolute;
+    width: 420px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    display: none;
+    background-color: white;
+    z-index: 1;
+    box-shadow: 3px 3px 5px rgba(118, 116, 116, 0.33);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+
+}
+.drop-down-submenu li {
+    width: 210px;
+    height: 40px;
+}
+.drop-down:hover .drop-down-submenu {
+    display: flex;
+}
+
+
