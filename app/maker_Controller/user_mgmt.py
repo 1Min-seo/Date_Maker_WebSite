@@ -4,28 +4,20 @@ import time
 import re
 import json
 
-class Login :
-    def __init__(self,login_cnt):
-        self.login_cnt = login_cnt
-
-    def get_cnt(self):
-        return self.cnt
-
-    def add_cnt(self):
-        self.cnt +=1 
-
-    def reset_cnt(self):
-        self.cnt = 0 
 
 class User :
+    users = []
     def __init__(self,user_id,user_name,user_password):
         self.id = user_id
         self.name =user_name
         self.passwd = user_password
-        self.cnt = 0
+        self.cnt = 0 
+    def __repr__(self):
+        return f'<Username:{self.name}>' 
 
     def get_id(self):
-        return self.id 
+        return self.id
+         
 
     @staticmethod 
     def find(user_id):  # 사용자가 존재하는지 확인
@@ -37,7 +29,7 @@ class User :
             return None
         user_id=user[0]
         user_name=user[1]
-        user_passwd=user[2]
+        user_passwd=user[2] 
         user = User(user_id,user_name,user_passwd)  #인스턴스 생성
         return user #User 인스턴스가 반환 
 
@@ -60,9 +52,9 @@ class User :
             sql = """insert into user_table (user_id,user_name,user_passwd) values ('%s','%s','%s')""" % (str(user_id),str(user_name),str(user_passwd)) 
             cursor.execute(sql)
             g.db.commit() 
-            return User.find(user_id) #User 인스턴스가 반환
+            return True
         else  :
-            return isUser #User 인스턴스가 반환 
+            return False  #이미 있는 유저면 False
 
     @staticmethod
     def makeProfile(user_id,start_date): #start date = [시작년도,시작월,시작 날] 프론트엔드에서 받아서 입력해주면 백엔드에서 다시 쏴주기 

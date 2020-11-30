@@ -1,0 +1,158 @@
+.wrapper{
+    margin-top: 90px;
+    position :relative; 
+    width: 100vw;
+    height: 100vh; 
+    text-align: center; 
+    font-weight: bold; 
+}
+.celebrate img{
+    object-fit: contain; 
+}
+.cele1{
+    position: absolute; 
+    left: 50%;;
+    top: 5%; 
+}
+.cele1 img{
+     width: 300px;
+    height: 200px;
+}
+.cele2{
+    position: absolute;
+    left: 33%;
+    top:0; 
+}
+.cele2 img{
+     width: 400px;
+    height: 300px;
+    transform: rotate(60deg)
+}
+.cele3{
+    position: absolute;
+    left: 58%;
+    top: 8%; 
+}
+.cele3 img{
+     width: 500px;
+    height: 340px;
+    transform: rotate(60deg)
+}
+.cele4{
+    position: absolute;
+    left: 20%;
+    top: 10%; 
+}
+.cele4 img{
+    width: 400px;
+    height: 300px;
+    transform: rotate(60deg)
+}
+.main {
+    color: white; 
+    position : absolute; 
+    left : 50%;
+    top: 50%; 
+    width : 750px;
+    z-index: 1001;
+    background-color: rgba(50, 56, 215, 0.87);
+    border-radius: 10px;
+    box-shadow: 4px 4px 9px darkgrey !important;  
+}
+/*등록하기 전 유저 관리*/
+.start-before{
+    display : flex; 
+    flex-direction: column; 
+    transform: translate(-50%,-100%);
+    align-items: center;
+    justify-content: center; 
+    height: 300px;
+}
+.start-before input{  font-family: 'yg-jalnan';
+    text-align: center; 
+    margin-left: 20px;
+    margin : 20px;
+    width: 200px;
+    height: 30px;
+    border: none; 
+}
+.start-before p{
+    border-radius: 10px;
+    color: black; 
+    width : 300px;
+    height: 40px;
+    background-color:white; 
+    font-size : 25px; 
+}
+.start-before button{
+    background-color: rgba(255, 255, 255, 0.85); 
+    width : 200px;
+    height: 40px;
+    font-size: 17px;
+    border-radius: 10px;
+    font-family: 'yg-jalnan';
+}
+.start-before button:hover{
+    background-color: rgb(255, 181, 47);
+    color: white;
+}
+
+/*등록을 마친 유저 관리 */ 
+.start-after{
+    transform: translate(-50%,-60%);
+    display: flex;
+    color: white; 
+    height: 500px; 
+    justify-content: center; 
+} 
+.today {
+    font-size: 40px;
+    font-family: 'yg-jalnan';
+}
+.grass{
+    display :flex;
+    align-items: center; 
+    flex-direction: column; 
+    text-align: left; 
+    font-weight: lighter; 
+    color : rgb(93, 93, 93);
+    background-color: white;
+    width: 600px;
+    height: 200px;
+    margin: 0 auto; 
+    border : 1px solid #ddd;
+    border-radius: 10px;
+}
+.grass p{
+    margin-right: 290px;
+}
+.grass-ground{
+    width: 95%;
+    border: 1px solid #ddd; 
+    height: 120px;  
+    display :flex; 
+    position : relative; 
+    border-radius: 10px;
+}
+.grass-ground .day-box{
+    margin : 9px;
+    text-align: center; 
+    width: 11%;
+}
+.grass-ground p{
+    margin : 0; 
+}
+.grass-ground .box-color{
+    height: 55px;
+    border-radius: 5px;
+}
+.show-how{
+    position: absolute;
+    bottom : 10px;
+    left : 20px; 
+    font-size: 11px;
+    color: rgba(18, 48, 212, 0.73); 
+}
+/*
+ font-family: 'Binggrae-Bold';
+font-family: 'TmoneyRoundWindExtraBold';*/

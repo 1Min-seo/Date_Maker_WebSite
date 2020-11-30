@@ -37,7 +37,7 @@ var vm = new Vue({
                 responseData = JSON.parse(JSON.stringify(response.data)); 
                 console.log(responseData);
                 console.log(typeof responseData);
-                vm.items = responseData;
+                vm.items = responseData; 
             })
             .catch((error)=>{
                 console.log(error)

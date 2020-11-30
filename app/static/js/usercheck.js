@@ -7,17 +7,19 @@ var vm = new Vue({
         login : false, 
     },
     created : function(){
-        this.isLogin()
+        this.isLogin(); 
     },
     methods : {
         isLogin : function(){
             var vm = this
-            axios.get(`${window.origin}/datemaker/main/usercheck`)
+            axios.post(`${window.origin}/datemaker/main/usercheck`)
             .then((response)=>{ 
                 console.log(response); 
                 var name = response.data['name']; 
-                vm.username = name; 
-                vm.login = true; 
+                if(name != "guest"){
+                    vm.username = name; 
+                    vm.login = true; 
+                }
             })
             .catch((error)=>{
                 console.log(error); 

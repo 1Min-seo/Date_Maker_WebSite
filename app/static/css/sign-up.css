@@ -8,6 +8,7 @@ body {
     position: relative;
 }
 .wrapper {
+    background-color: white;
     margin-top : 180px;
     position : absolute;
     left : 50% ;
@@ -51,7 +52,7 @@ nav {
     display: inline-block;
     width: 50px;
     height: 54px; 
-    background-color: dodgerblue;
+    background-color : #323EDF ; 
     color: white;
     line-height: 50px; 
     font-size : 30px;
@@ -81,9 +82,8 @@ nav {
 
 #submit{
     display : inline-block;
-   
     padding: 10px; 
-    background-color:dodgerblue;
+    background-color : #323EDF ; 
     font-weight : 400; 
     font-size : 25px;
     color: white;
@@ -91,7 +91,6 @@ nav {
     height: 50px; 
     border: none; 
     border-radius: 8px;
-    
 }
 #cancel{
     display : block;

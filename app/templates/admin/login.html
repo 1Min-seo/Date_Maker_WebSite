@@ -4,12 +4,12 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
 {% endblock %}
 {% block main %}
-<p>{{ makeAlert | safe }} </p> 
+<p style="position:absolute;">{{ makeAlert | safe }} </p> 
 <section class="main">
     <div class="center">
         <article class="form">
             <h1>로그인</h1>
-            <form method="POST" action="/login"> 
+            <form method="POST" action="/datemaker/login"> 
                 <div id="input-1">
                     <label for="inputId" class="sr-only"></label>
                     <input type="text" id="inputId" name="Id" placeholder="아이디를 입력해주세요" autofocus>

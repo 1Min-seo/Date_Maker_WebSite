@@ -1,11 +1,16 @@
+body{
+    background-color: #eee;
+}
+
 .main{
     flex: 1 ; 
     display : flex;
     justify-content: center;
-    margin-top : 120px
+    margin-top : 200px
 }
 
 .main div.center{
+    background-color: white;
     border : 1px solid #EEEEEE; 
     width: 524px;
     height: 485px; 

@@ -5,25 +5,26 @@
 {% endblock %}
 {% block main %}
 <div class="wrapper" id="app">
+    <p style="position:absolute;">{{ makeAlert | safe }} </p> 
     <nav>
         <div></div>
     </nav>
     <section class="main">
         <article class="top">
-            <form method="POST" action="/signup">
+            <form method="POST" action="/datemaker/signup">
                 <h1>회원가입</h1>
                 <div class="input">
                     <span class="input-group-addon">
                         <i class="fa fa-user "></i>
                     </span>
-                    <input type="text" id="inputName" name="name" class="form-control" placeholder="Enter your name"
+                    <input type="text" id="inputName" name="name" class="form-control" placeholder="이름을 입력해 주세요"
                         required autofocus>
                 </div>
                 <div class="input">
                     <span class="input-group-addon">
-                        <i class="fa fa-envelope"></i>
+                        <i class="fa fa-id-badge"></i>
                     </span>
-                    <input type="text" id="inputId" name="Id" class="form-control" placeholder="Enter your eamil"
+                    <input type="text" id="inputId" name="Id" class="form-control" placeholder="아이디를 입력해 주세요"
                         required autofocus>
                 </div>
                 <div class="input">
@@ -31,11 +32,11 @@
                         <i class="fa fa-lock"></i>
                     </span>
                     <input type="password" id="inputPassword" name="passwd" class="form-control"
-                        placeholder="Enter your password" required>
+                        placeholder="비밀번호를 입력해 주세요" required>
                 </div>
                 <div class="button">
-                    <button type="submit" id="submit">Create Account</button>
-                    <button type="button" id="cancel">Cancle</button>
+                    <button type="submit" id="submit">계정 만들기 <span style="color:crimson; font-size:30px;"> ♥</span></button>
+                    <button type="button" id="cancel">취소</button>
                 </div>
             </form>
         </article>

@@ -23,7 +23,7 @@ from maker_Views import main_view
 from maker_Model.model import Restaurant 
 from maker_Model.model import RoomInfo 
 from maker_Model.model import PlaceInfo
-from maker_Controller.user_mgmt import User,Login
+from maker_Controller.user_mgmt import User
 import os 
 from flask import send_from_directory
 
@@ -32,12 +32,16 @@ from flask import send_from_directory
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1' 
 
 app = Flask(__name__,static_url_path='/static')
-app.register_blueprint(main_view.pages)
+
 CORS(app) 
 app.config.update(
     SECRET_KEY ="woosangyoon1234",
     SESSION_COOKIE_NAME="User_cookie"
 )
+
+app.register_blueprint(main_view.pages)
+#모든 유저들을 나타내는 전역변수. User인스턴스 append 하여 관리 
+ 
 
 @app.route('/favicon.ico')
 def favicon():
@@ -53,7 +57,13 @@ def before_request():
     password = 'ywoosang'
     database_name = 'datemaker_db'
     g.db = pymysql.connect(host=host_name,port=host_port,user=user_name,passwd=password,db=database_name,charset='utf8') 
-    
+    g.user = None
+    if 'user_id' in session:
+        user_list = [x for x in User.users if x.id == session['user_id'] ]
+        if user_list != [] : 
+            g.user = user_list[0]  # user users 에 append 된건 이름,아이디,비번이 넣어진 User 인스턴스임
+            print(g.user.id)
+
 @app.teardown_request
 def teardown_request(exeption):
     g.db.close()  
@@ -102,7 +112,6 @@ class Crawl:
         overseas = content[1].string 
         plus =re.findall('\d+',allData.find('span',class_="before").get_text())[0]
         return [domestic,overseas,plus]
-        
 
 
 # response API 
@@ -133,10 +142,15 @@ def roomsRes():
     response = RoomInfo.getRooms(location)
     return make_response(jsonify(response),200) 
 
-@app.route('/datemaker/main/usercheck',methods=["GET"])
+@app.route('/datemaker/main/usercheck',methods=["POST"])
 def userCheck():
+    print("데이터 보내짐")
+    if not g.user: 
+        name = 'guest'
+    else :
+        name = str(g.user.name)
     response = {
-        'name' : "윤우상" 
+        'name' : name
     }
     return make_response(jsonify(response),200) 
 

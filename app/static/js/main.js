@@ -24,7 +24,6 @@ var vm = new Vue({
       number : 0 
     }, 
     created : function(){
-            this.isLogin() 
             var vm = this; 
             axios.post(`${window.origin}/datemaker/main/slide/food`)
             .then(function(response){   //성공

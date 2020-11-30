@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../../static/css/style.css">
+    <link rel="stylesheet" href="../../static/css/profile.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script> 
+    <script src="../../static/js/profile.js" defer></script> 
+</head>
+<body>
+    <div class="wrapper" id="app">
+        <template v-if="profile">
+        <div>
+            <div v-for="name in names" v-bind:class="name">
+                <img src="../../static/img/celebrate.png">
+            </div>
+        </div>
+        <section class="main start-after">
+            <div>
+                <div>
+                    <p class="today">오늘 우리는 <span style="color:pink"> 733</span> 일<span style="color:crimson"> ♥</span> </p>
+                </div>
+                <div>
+                    <p class="week" style="font-size: 18px;">이번주 ,우리가 몇번 만났을까 ? </p>
+                    <p><span style="font-size: 20px; color:rgb(248, 255, 80)">길게</span> 만난날 , <span style="font-size: 20px; color:#ff6399">특별한</span> 날은 더 <span style="font-size: 20px; color:#00ff4e">진한색 </span> 으로 ! </p>
+                </div>
+                <div class="grass">
+                    <p>0 contributions in this week (total 28)</p>
+                    <div class="grass-ground">
+                        <p class="show-how">Learn how to use this </p>
+                        <div class="day-box"
+                        v-for="(color,index) in colors">
+                            <p>${ days[index] }</p>
+                            <div
+                            class="box-color" 
+                            v-on:click="classToggle(index,$event)" 
+                            style="background-color : #ddd"
+                            ></div>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </template>
+        <template v-else>
+        <section class="main start-before">
+            <p>커플정보를 시작해 보세요!</p>
+            <label for="start-day" style="font-size:19px;">사귀기 시작한 날을 입력해 주세요 !<span style="color:crimson"> ♥</span></label>
+            <input v-model="date" id="start-day" type='date' /><br>
+            <button v-on:click="startProfile">커플 정보 시작하기 ${ date } ${ sendDate }</button>
+        </section>
+        </template> 
+    </div>
+</body></html>
