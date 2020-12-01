@@ -23,11 +23,10 @@ from maker_Views import main_view
 from maker_Model.model import Restaurant 
 from maker_Model.model import RoomInfo 
 from maker_Model.model import PlaceInfo
+from maker_Model.model import Profile 
 from maker_Controller.user_mgmt import User
 import os 
 from flask import send_from_directory
-
-
 
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1' 
 
@@ -62,6 +61,7 @@ def before_request():
         user_list = [x for x in User.users if x.id == session['user_id'] ]
         if user_list != [] : 
             g.user = user_list[0]  # user users 에 append 된건 이름,아이디,비번이 넣어진 User 인스턴스임
+            print(type(g.user.id))
             print(g.user.id)
 
 @app.teardown_request
@@ -161,6 +161,85 @@ def placeRes():
     location = req['title'] 
     response = PlaceInfo.getPlace(location)
     return make_response(jsonify(response),200) 
+
+
+@app.route('/datemaker/profile/makeprofile',methods=["POST","GET"])
+def makeProfile():
+    req = request.get_json() 
+    day = req['day']
+    user_id = g.user.id
+    print(g.user.id)
+    Profile.startProfile(user_id,str(day)) 
+    response = jsonify(success=True) 
+    date = int(Profile.getDate(str(g.user.id)))
+    response = {
+        'date' : date
+    }
+    return make_response(jsonify(response),200) 
+
+@app.route('/datemaker/profile/has',methods=["get","POST"])
+def getProfile():
+    try :
+        user_id = g.user.id
+    except : # 세션이 만료된 경우
+        return make_response(jsonify('session not found'),402) 
+    noProfile = Profile.findProfile(user_id)
+    if noProfile :
+        response = {
+            'profile' : 'no'
+        }
+    else :
+        response = {
+            'profile' : 'yes'
+        }
+    return make_response(jsonify(response),200) 
+
+
+@app.route('/datemaker/profile/getdate')
+def getDay():
+    date = int(Profile.getDate(str(g.user.id)))
+    response = {
+        'date' : date
+    }
+    return make_response(jsonify(response),200) 
+
+
+@app.route('/datemaker/profile/getcolors')
+def getColors():
+    try :
+        user_id = g.user.id
+    except : # 세션이 만료된 경우
+        return abort(402)
+    dayArray = Profile.getDay(str(g.user.id))
+    response = {
+        'colors' : dayArray
+    }
+    return make_response(jsonify(response),200) 
+
+@app.route('/datemaker/profile/update/date',methods=["POST"])
+def getDate():
+    print('전송완료')
+    req = request.get_json()
+    if type(req) == None :
+        abort(403)
+    print(req)
+    print(type(req))
+    newArray = req['colors']
+    Profile.updateDay(str(g.user.id),newArray)
+    response = jsonify(success=True)
+    return response
+    
+@app.route('/datemaker/logout')
+def logout():
+    session.pop('user_id', None) 
+    response = jsonify(success=True) 
+    return response
+
+@app.route('/datemaker/profile/renew',methods=["POST"])
+def renewDate():
+    Profile.resetDay(str(g.user.id))
+    response = jsonify(success=True) 
+    return response
 
 if __name__ == "__main__" :
     app.run(debug=1)  
