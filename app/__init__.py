@@ -24,7 +24,9 @@ from maker_Model.model import Restaurant
 from maker_Model.model import RoomInfo 
 from maker_Model.model import PlaceInfo
 from maker_Model.model import Profile 
+from maker_Model.model import Cart
 from maker_Controller.user_mgmt import User
+from datetime import timedelta
 import os 
 from flask import send_from_directory
 
@@ -50,6 +52,8 @@ def favicon():
  
 @app.before_request
 def before_request():
+    session.permanent = True
+    app.permanent_session_lifetime = timedelta(minutes=30)
     host_name="localhost"
     host_port = 3306
     user_name = 'root'
@@ -209,8 +213,8 @@ def getColors():
     try :
         user_id = g.user.id
     except : # 세션이 만료된 경우
-        return abort(402)
-    dayArray = Profile.getDay(str(g.user.id))
+        return make_response(jsonify('session not found'),402) 
+    dayArray = Profile.getDay(str(user_id))
     response = {
         'colors' : dayArray
     }
@@ -240,6 +244,35 @@ def renewDate():
     Profile.resetDay(str(g.user.id))
     response = jsonify(success=True) 
     return response
+
+@app.route('/datemaker/test')
+def test():
+    return abort(403)  #forbidden
+
+@app.route('/datemaker/cart/res',methods=["POST"])
+def cartRes(): 
+    try :
+        response = Cart.getItem(g.user.id)
+    except Exception as e:  
+        print(e) 
+        return abort(403)
+    return make_response(jsonify(response),200)
+
+@app.route('/datemaker/response/cart',methods=["POST"])
+def toggleRes():
+    req = request.get_json()
+    item = req['item']
+    number = req['number']
+    section = req['section']
+    print(number)
+    print(section)
+    print(item) 
+    try :
+        response = Cart.toggleItem(g.user.id,item,number,section)
+    except Exception as e:  
+        print(e) 
+        return abort(403)
+    return make_response(jsonify(response),200)
 
 if __name__ == "__main__" :
     app.run(debug=1)  
