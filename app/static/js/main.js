@@ -40,7 +40,7 @@ var vm = new Vue({
                         slidesToScroll: 2,
                         autoplay: true
                     });
-            },4);}) 
+            },40);}) 
             .catch(function(error){    //실패 
                 console.log(error);
             })

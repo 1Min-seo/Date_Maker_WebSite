@@ -359,6 +359,49 @@ button.slick-arrow{
     box-sizing: border-box;
     padding : 9px;
 }
+
+footer {
+    margin-top:500px;
+    bottom: 0; 
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    width: 100vw;
+    flex-direction: column;
+    background-color: #222426;
+    color: white;
+    font-size: 14px;
+}
+
+.head {
+    display: flex;
+    height: 74px;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(169, 169, 169, 0.32);
+    align-items: center;
+}
+
+.head div {
+    margin-left: 30px;
+    height: 60px;
+    line-height: 60px;
+}
+
+.bottom {
+    height: 100px;
+    width: 500px;
+
+
+}
+
+.head div i {
+    margin-top: 6px;
+    color: white;
+    font-size: 45px;
+    margin: 6px 10px 0 10px;
+}
+
+
 @media screen and (max-width:1495px){
     .banner .floating-menu{
         display : none;

@@ -57,20 +57,22 @@ var vm = new Vue({
                 console.log(error)
             })
         },
-        addCart: function (item, index) {
-            // var vm = this; 
-            // axios.post(`${window.origin}/datemaker/main/slide/food`,{
-            //     title : item
-            // })
-            // .then((response)=>{
-            //     responseData = JSON.parse(JSON.stringify(response.data));
-            //     vm.items = responseData;
-            // })
-            // .catch((error)=>{
-            //     console.log(error)
-            // }
-            // )
-            console.log(item)
+        async addCart(item) {
+            try {
+                await axios.post(`${window.origin}/datemaker/response/cart`, {
+                    number: 2,
+                    item: item,
+                    section : 'add'
+                })
+                alert('상품이 데이트바구니에 담겼습니다.')
+
+            } catch (error) {
+                if (error.response.status == 403) { //forbidden
+                    alert('로그인 해주세요')
+                }
+            }
+            console.log(JSON.parse(JSON.stringify(item)))
+             
         }
     }
 })

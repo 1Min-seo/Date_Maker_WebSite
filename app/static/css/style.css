@@ -14,7 +14,7 @@
     font-style: normal;
 }
 
-@import url(https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 @font-face {
     font-family: 'TmoneyRoundWindExtraBold';
@@ -23,18 +23,29 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Recipekorea';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Recipekorea.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /*Reset CSS */
 *:focus {
     outline: none;
 }
+
 body {
-    margin: 0 ;
+    margin: 0;
     font-family: 'Noto Sans KR', sans-serif;
-    width: 100vw; 
+    width: 100vw;
+    position : relative;
 }
-button{
+
+button {
     border: none;
 }
+
 ul {
     list-style: none;
 }
@@ -42,36 +53,46 @@ ul {
 a {
     text-decoration: none;
 }
-h1,h2,h3,h4,h5,h6{
-    margin:0; 
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
 }
 
 /* start */
 .app-container {
-    width : 100vw ;
-    overflow: hidden ; 
+    width: 100vw;
+    overflow: hidden;
 }
-header{
+
+header {
     z-index: 2;
 }
-section{
-/*    z-index: -1;*/
+
+section {
+    /*    z-index: -1;*/
 }
+
 /*헤더 영역 */
 header {
-    background-color: white; 
+    background-color: white;
     height: 75px;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100vw;
     box-shadow: 3px 3px 16px #ddd;
-    position : fixed;
-    top : 0;
+    position: fixed;
+    top: 0;
     left: 0;
-    right: 0 ;
-    width: 100vw !important; 
+    right: 0;
+    width: 100vw !important;
 }
+
 .container {
     font-size: 22px;
     font-weight: 500;
@@ -81,6 +102,7 @@ header {
     justify-content: center;
     overflow: hidden;
 }
+
 .logo {
     color: #323ed7;
     width: 230px;
@@ -88,44 +110,69 @@ header {
     line-height: 50px;
     margin-right: 25%;
 }
+
 .logo a {
     font-size: 30px;
     color: #323ed7;
     font-family: 'yg-jalnan';
 }
+
 .gnb {
     width: 470px;
     display: flex;
 }
+
 .gnb a {
     color: #494949;
     line-height: 50px;
     position: relative;
     margin: 0 10px;
+    cursor: pointer;
+
 }
-.gnb a.user-appear{
-    position :absolute; 
+
+.gnb a.user-appear {
+    position: absolute;
     font-size: 18px;
 }
-.gnb a.user-name{
-    right : calc(100px);
+
+.gnb a.user-name {
+    right: calc(120px);
 }
-.gnb a.login{
-    right : calc(4em + 100px);
+
+.gnb a.logout {
+    right: calc(30px);
 }
-.gnb a.sign-up{
-    right : 4em;
-}
-.gnb a.login::after{
-    content:"";
-    position : absolute;
+
+.gnb a.logout::after {
+    content: "";
+    position: absolute;
     width: 2px;
     height: 20px;
-    background-color: #434343; 
+    background-color: #666666;
+    left: -10px;
+    top: 17px;
+}
+
+.gnb a.login {
+    right: calc(4em + 100px);
+}
+
+.gnb a.sign-up {
+    right: 4em;
+}
+
+.gnb a.login::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    background-color: #434343;
     right: -17px;
     top: 17px;
 }
-.gnb a:before {
+
+.gnb a.nav-block:before {
     /*before,after 는 인라인 요소기 때문에 크기값을 가질 수 없다. position absolute 주면 인라인 블록으로 바뀜.*/
     content: '';
     position: absolute;
@@ -139,11 +186,22 @@ header {
     /*오른쪽에서 붙은 상태로 증가 */
     width: 0px;
 }
-.gnb a:hover::before {
+
+.gnb a.user-appear:hover {
+    font-weight: bold;
+}
+
+.gnb a.logout:hover {
+    color: red;
+}
+
+.gnb a.nav-block:hover::before {
     width: 100%;
 }
-@media screen and (max-width:1495px){
-    .user-appear{ 
-        display : none; 
+
+
+@media screen and (max-width:1495px) {
+    .user-appear {
+        display: none;
     }
 }

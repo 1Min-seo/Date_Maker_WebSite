@@ -96,7 +96,6 @@
     background-color: rgb(255, 181, 47);
     color: white;
 }
-
 /*등록을 마친 유저 관리 */ 
 .start-after{
     transform: translate(-50%,-60%);
@@ -135,9 +134,9 @@
     border-radius: 10px;
 }
 .grass-ground .day-box{
-    margin : 9px;
+    margin : 12px;
     text-align: center; 
-    width: 11%;
+    width: 10%;
 }
 .grass-ground p{
     margin : 0; 
@@ -146,13 +145,20 @@
     height: 55px;
     border-radius: 5px;
 }
-.show-how{
+.show-how, .renew-week{
     position: absolute;
     bottom : 10px;
     left : 20px; 
     font-size: 11px;
     color: rgba(18, 48, 212, 0.73); 
+    cursor: pointer;
+    height: 20px; 
 }
-/*
- font-family: 'Binggrae-Bold';
-font-family: 'TmoneyRoundWindExtraBold';*/
+.renew-week{
+    top: -35px;
+    left : 455px ;
+    font-size: 14px;
+}
+.renew-week:hover{
+    color : black;
+}

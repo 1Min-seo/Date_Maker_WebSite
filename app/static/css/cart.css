@@ -1,0 +1,141 @@
+.cart-wrapper{
+  margin-top: 80px;
+}
+
+.cart-container{
+  background-color: rgba(235, 235, 235, 0.925);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  padding-right: 1020px;
+  box-sizing: border-box;
+}
+.wrapper{
+  padding: 0;
+  /*max-width: 460px;*/ 
+  max-width : 710px;
+  width: 100%;
+  border-radius: 3px;
+}
+.wrapper .item{
+  background-color: white;
+  display: flex;
+  margin-bottom: 8px;
+  border-radius: 3px;
+  align-items: center;
+  justify-content: space-between;
+  height: 250px;
+  position : relative;
+  box-shadow: 3px 3px 8px #ddd;
+  margin: 30px;
+}
+.wrapper .item:last-child{
+  margin-bottom: 0px;
+}
+.wrapper .item .cart-img{
+  height: 250px;
+  width :250px;
+}
+.wrapper .item .cart-img img{
+  height: 250px;
+  width :250px;
+  object-fit: cover;
+}
+.wrapper .item .cart-elem{
+ height: 250px;
+ flex: 1;
+}
+.wrapper .item .text{
+  display : inline-block;
+  margin: 10px 5px 0 80px; 
+  font-size: 28px;
+  font-weight: 400;
+  font-family: 'yg-jalnan';
+}
+.wrapper .item i{
+  font-size: 18px;
+  cursor: pointer;
+}
+.wrapper .item .btn{
+  cursor: pointer;
+  width : 200px;
+  height: 30px;
+  position :absolute;
+  bottom : 13px;
+  right: 13px;
+  font-size: 15px;
+  font-family: 'yg-jalnan';
+  color: black;
+  transition : 0.5s;
+}
+.wrapper .item .show-btn{
+  right : 10%;
+  top : 40%;
+  opacity: 0.4;
+  width : 250px;
+  height: 45px;
+  line-height: 45px;
+  background-color: rgb(252, 118, 162);
+  display : none;
+}
+.wrapper .item:hover .show-btn{
+  display : block;
+}
+.wrapper .item .btn:hover{
+  background-color: dodgerblue;
+  color: white;
+}
+.wrapper .item .btn::before{
+  content:"\f1f8"; 
+  font-family:'fontawesome';
+  margin-right: 10px;
+  font-size: 20px;
+}
+.wrapper .item .show-btn::before{
+  content:"\f002";
+  font-family:'fontawesome';
+  margin-right: 10px;
+  font-size: 20px;
+} 
+.number-box{
+  text-align: center;
+  margin-top: 100px;
+  width : 180px; 
+  height: 180px;
+  font-size: 40px;
+  line-height: 180px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  font-family: 'Recipekorea';
+  transition: 0.5s;
+}
+.number-box:first-child{
+  margin-top: 30px;
+}
+.number-box:hover{
+  background-color: rgb(252, 118, 162);
+  color: white;
+}
+.over{
+  color :rgb(252, 118, 162);
+}
+.number-box:hover .over{
+  color : white;
+}
+.sortable-ghost{
+  border-left:  9px solid dodgerblue;
+  opacity : 0.7;
+}
+.frame{
+  position :fixed;
+  right : 10%;
+  top : 50%;
+  transform: translateY(-50%);
+  display:flex; 
+  width : 860px;
+  height: 600px;
+  flex-direction: column;
+  font-size : 24px;
+}

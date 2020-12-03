@@ -8,7 +8,6 @@ var titleText ={
     },
     created : function() {
         this.title = this.hashtag.split('#').slice(1,4).join('#');
-        console.log(this.title)
     }
 }
 var vm =new Vue({
@@ -26,15 +25,31 @@ var vm =new Vue({
         .then((response)=>{
              var resData = response.data;
              vm.items=resData;
-             console.log(vm.items)
         })
         .catch((error)=>{
             console.log(error);
         })
     },
     methods : {
-        addCart : function(item){
-             console.log(item) 
+        async addCart(item){
+            var item= item.slice(1);
+            try {
+                await axios.post(`${window.origin}/datemaker/response/cart`, {
+                    number: 0,
+                    item: item,
+                    section : 'add'
+                })
+                alert('상품이 데이트바구니에 담겼습니다.')
+
+            } catch (error) {
+                if (error.response.status == 403) { //forbidden
+                    alert('로그인 해주세요')
+                }
+            }
+            console.log(JSON.parse(JSON.stringify(item)))
         }
-    }
-}); 
+
+        }});
+        
+    
+ 

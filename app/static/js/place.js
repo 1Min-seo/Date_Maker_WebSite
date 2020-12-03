@@ -12,51 +12,50 @@ var vm = new Vue({
     el: '#app',
     delimiters: ['${', '}'],
     data: {
-        items: null, 
+        items: null,
         selected: '명동',
-        selectList: ['광화문','명동','동대문','홍대','여의도','이태원','강남','잠실']
+        selectList: ['광화문', '명동', '동대문', '홍대', '여의도', '이태원', '강남', '잠실']
     },
     components: {
         'submenu-item': submenuItem
     },
-    created : function(){ 
-            this.getData(this.selected); 
-    } 
+    created: function () {
+        this.getData(this.selected);
+    }
     ,
     methods: {
         changeItem: function (item) {
             this.selected = item
-            this.getData(this.selected);  
+            this.getData(this.selected);
         },
-        getData : function(location){
-            var vm = this; 
-            axios.post(`${window.origin}/datemaker/seoul/places`,{
-                title : location
+        getData: function (location) {
+            var vm = this;
+            axios.post(`${window.origin}/datemaker/seoul/places`, {
+                title: location
             })
-            .then((response)=>{
-                responseData = JSON.parse(JSON.stringify(response.data)); 
-                console.log(responseData);
-                console.log(typeof responseData);
-                vm.items = responseData; 
-            })
-            .catch((error)=>{
-                console.log(error)
-            })
+                .then((response) => {
+                    responseData = JSON.parse(JSON.stringify(response.data));
+                    vm.items = responseData;
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
         },
-        addCart: function (item, index) {
-            // var vm = this; 
-            // axios.post(`${window.origin}/datemaker/main/slide/food`,{
-            //     title : item
-            // })
-            // .then((response)=>{
-            //     responseData = JSON.parse(JSON.stringify(response.data));
-            //     vm.items = responseData;
-            // })
-            // .catch((error)=>{
-            //     console.log(error)
-            // }
-            // )
-            console.log(item)
+        async addCart(item) {
+            try {
+                await axios.post(`${window.origin}/datemaker/response/cart`, {
+                    number: 1,
+                    item: item,
+                    section : 'add'
+                })
+                alert('상품이 데이트바구니에 담겼습니다.')
+
+            } catch (error) {
+                if (error.response.status == 403) { //forbidden
+                    alert('로그인 해주세요')
+                }
+            }
+            console.log(JSON.parse(JSON.stringify(item)))
         }
     }
 })
